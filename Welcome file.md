@@ -106,7 +106,8 @@
 - [ ![KOFIC](http://www.kobis.or.kr/kobisopenapi/web/images/common/logo.gif)  ![영화권입장권통합전산망 오픈API](http://www.kobis.or.kr/kobisopenapi/web/images/common/logo_sub.gif)](http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do)
 - [rapidapi - movie](https://rapidapi.com/collection/movie-apis)
 - [웹 크롤링관련 - BeautifulSoup ](https://www.yceffort.kr/2018/11/05/web-crwaling-for-naver-movie/)
-
+- [영화 진흥 위원회](https://www.kofic.or.kr/kofic/business/infm/introData.do)
+- [삐끼]()
 # 2. 형상관리
 
 # 3. 협업툴
@@ -114,5 +115,5 @@
 # 4. 서버
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTg4NDI1ODVdfQ==
+eyJoaXN0b3J5IjpbNjk4ODQxMTY0XX0=
 -->
