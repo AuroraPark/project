@@ -51,6 +51,9 @@
 - [napster API - 플레이어 api](https://developer.napster.com/)
 - [ㄴnapster Example](https://jsfiddle.net/napstercat/c4zczg6j/?utm_source=website&utm_medium=embed&utm_campaign=c4zczg6j)
 - [스트리밍 서버 참고](http://aodis.egloos.com/m/5962812)
+- [실시간채팅 참고 블로그](https://codevkr.tistory.com/58).
+
+
 ## 2) 영화
 
 <영화통합>
@@ -125,5 +128,5 @@
 - 데탑
 - aws
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTkzOTA3OTBdfQ==
+eyJoaXN0b3J5IjpbMTgzMTA1OTQ1M119
 -->
