@@ -50,7 +50,7 @@
 - [음악 검색 및 스트리밍 서비스](https://github.com/kinayoon/Music-Searching-and-Streaming)
 - [napster API - 플레이어 api](https://developer.napster.com/)
 - [ㄴnapster Example](https://jsfiddle.net/napstercat/c4zczg6j/?utm_source=website&utm_medium=embed&utm_campaign=c4zczg6j)
-
+- [스트리밍 서버 참고](http://aodis.egloos.com/m/5962812)
 ## 2) 영화
 
 <영화통합>
@@ -107,13 +107,23 @@
 - [rapidapi - movie](https://rapidapi.com/collection/movie-apis)
 - [웹 크롤링관련 - BeautifulSoup ](https://www.yceffort.kr/2018/11/05/web-crwaling-for-naver-movie/)
 - [영화 진흥 위원회](https://www.kofic.or.kr/kofic/business/infm/introData.do)
-- [삐끼]()
+- [삐끼](http://extmovie.maxmovie.com/xe/movietalk/16810353)
+
 # 2. 형상관리
+- git
+- svn
 
 # 3. 협업툴
+- slack
+- 디코
+- 구글 일정
 
 # 4. 서버
 
+- 카페 24
+- 닷홈
+- 데탑
+- aws
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk4ODQxMTY0XX0=
+eyJoaXN0b3J5IjpbLTE3MTkzOTA3OTBdfQ==
 -->
