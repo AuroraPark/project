@@ -6,25 +6,6 @@
 
 <스트리밍>
 
-멜론지니벅스st
-지니에 쫌더 가깝게!
-
-아직 이해가 살짝 안됨...
-지니같은 사이트를 만드는데 지니에 있는 음악 데이터들을 가져와서 사용??약간 중간다리역할??
-
-음악에대한 단순한 정보는 웹크롤링으로 가져올수있을거같은데
-지니서버,디비에접속해서 음악자체를 가져와 재생까지 시킬수있는건징...?
-
-
-
-진석오빠가 올려줬던 깃헙 링크 많이많이 참고
-
-직캠영상등은 유튜브에서 따오는걸로!
-
-노래자랑영상은 유튜브랑 연동해서 올릴것인지 아니면 그냥 사이트내에서만 볼수있게??
-
-
-
 ### Development Environment
 
 -   IDE : STS (Spring Tool Suite) 3.8.1.RELEASE
@@ -56,13 +37,7 @@
 
 ## 2) 영화
 
-<영화통합>
-공통사항
-서버, 디비, 개발툴 등등 어떤걸 사용할지?
-
-
-
-삐끼라는 앱이 있는데 3사통합해서 예매정보?예매오픈했는지 알려줌, 아이폰안드웹다됨!
+- 참고 어플 - 삐끼: 3사통합해서 예매정보?예매오픈했는지 알려줌, 아이폰안드웹 지원) 
 
 데이터는 웹크롤링으로 다 긁어올 수 있을듯
 모든 영화에 대한 정보는 공공디비에서 가져올수있음
@@ -136,8 +111,8 @@
 - [자바 크롤링2](https://ospetabyte.tistory.com/275)
 - [무비티케팅- 깃허브](https://github.com/hhk2745/SpringProject_Movie-Ticketing-Site)
 - [페이스북 로그인](https://gdtbgl93.tistory.com/75?category=786675)
-- [구글 로그인]()
+- [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTQ1Njg3MiwtMTM5MDQ3NDkyMCwtMj
+eyJoaXN0b3J5IjpbMjA5Nzg0NzUxMCwtMTM5MDQ3NDkyMCwtMj
 g5MjAyNzk5XX0=
 -->
