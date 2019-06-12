@@ -134,7 +134,8 @@
 
 - [자바 크롤링](https://ktko.tistory.com/entry/JSOUP%EB%A1%9C-%EC%9E%90%EB%B0%94%EB%8F%84-%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%B4-%EA%B0%80%EB%8A%A5%ED%95%98%EB%8B%A4)
 - [자바 크롤링2](https://ospetabyte.tistory.com/275)
-- [](https://github.com/hhk2745/SpringProject_Movie-Ticketing-Site)
+- [이건머지](https://github.com/hhk2745/SpringProject_Movie-Ticketing-Site)
+- https://gdtbgl93.tistory.com/75?category=786675
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTk4NzY0NDZdfQ==
+eyJoaXN0b3J5IjpbLTI4OTIwMjc5OV19
 -->
