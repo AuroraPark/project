@@ -120,11 +120,10 @@
 
 # 6 로그인 암호화
 
-- Base
+- Base 64
+- RSA
 
-
-- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNTAzNDExNywyNTM4NjA5MDIsLTEzOT
+eyJoaXN0b3J5IjpbLTUzMTU2OTI4MSwyNTM4NjA5MDIsLTEzOT
 A0NzQ5MjAsLTI4OTIwMjc5OV19
 -->
