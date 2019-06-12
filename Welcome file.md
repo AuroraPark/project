@@ -1,3 +1,7 @@
+> 06.12 회의 추가됨
+
+- 
+
 
 # 1. 주제선정
 
@@ -25,6 +29,9 @@
 6. 게시판
 7. 실시간 채팅
 8. 직캠영상
+9. 방송정보
+10. 콘서트 정보
+11. 해시태그 
  
 ### 참고자료
 
@@ -73,6 +80,7 @@
 6. 포인트 정립
 7. 나영리(나만의 영화 리스트)
 8. 넷플, 왓챠
+9. 주차권(모바일)
 
 
 ### 참고자료 - API 등
@@ -110,11 +118,13 @@
 - [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
 
 
+# 6 로그인 암호화
 
-# 06.12 회의 추가 사항
+- Base
+
 
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkyNTczMDUsMjUzODYwOTAyLC0xMzkwND
-c0OTIwLC0yODkyMDI3OTldfQ==
+eyJoaXN0b3J5IjpbMTIyNTAzNDExNywyNTM4NjA5MDIsLTEzOT
+A0NzQ5MjAsLTI4OTIwMjc5OV19
 -->
