@@ -42,7 +42,7 @@
 - 데이터는 웹크롤링으로 
 - 게시판- 그냥 스프링 마이바티스 등등 사용
 
-로그인은 구글 페이스북 카톡등등 오픈api사용
+- 로그인 구글 페이스북 카톡등등 오픈api사용
 스프링 시큐리티같은걸로 직접 구현하는것도 큰 도움이 될듯! 
 모든 개인정보(이메일주소, 전화번호 등)는 개인정보보호를 위해 최대한 꽁꽁숨겨놓기!
 
@@ -111,6 +111,6 @@
 - [페이스북 로그인](https://gdtbgl93.tistory.com/75?category=786675)
 - [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUzODYwOTAyLC0xMzkwNDc0OTIwLC0yOD
-kyMDI3OTldfQ==
+eyJoaXN0b3J5IjpbLTg0MDU3MDU5OSwyNTM4NjA5MDIsLTEzOT
+A0NzQ5MjAsLTI4OTIwMjc5OV19
 -->
