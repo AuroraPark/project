@@ -118,12 +118,12 @@
 - [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
 
 
-# 6 로그인 암호화
+# 6. 로그인 암호화
 
-- Base 64
+- [base64](https://www.base64decode.net/)
 - RSA
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMTU2OTI4MSwyNTM4NjA5MDIsLTEzOT
-A0NzQ5MjAsLTI4OTIwMjc5OV19
+eyJoaXN0b3J5IjpbLTg1NzM0MDE3MSwtNTMxNTY5MjgxLDI1Mz
+g2MDkwMiwtMTM5MDQ3NDkyMCwtMjg5MjAyNzk5XX0=
 -->
