@@ -40,17 +40,15 @@
 - 참고 어플 - 삐끼: 3사통합해서 예매정보?예매오픈 정보 (아이폰, 안드,웹 지원) 
 
 - 데이터는 웹크롤링으로 
-- 게시판- 그냥 스프링 마이바티스 등등 사용
+- 게시판: 그냥 스프링 마이바티스 등등 사용
 
-- 로그인 구글 페이스북 카톡등등 오픈api사용
+- 로그인: 구글 페이스북 카톡등등 오픈api사용
 스프링 시큐리티같은걸로 직접 구현하는것도 큰 도움이 될듯! 
 모든 개인정보(이메일주소, 전화번호 등)는 개인정보보호를 위해 최대한 꽁꽁숨겨놓기!
 
-포인트적립은 어떤식으로 제공할지..?
-글작성시 몇포인트 적립 이런식으로...?
-근데 씨집롯시메박의 정보를 긁어와서 뿌려주는건데 
-자체만의 리뷰같은걸 받는게 좋을지...?
-
+#### 추가 
+ - 포인트적립 방법
+ - 페이지 자체의 리뷰 작성 유무
 
 
 
@@ -110,7 +108,13 @@
 - [무비티케팅- 깃허브](https://github.com/hhk2745/SpringProject_Movie-Ticketing-Site)
 - [페이스북 로그인](https://gdtbgl93.tistory.com/75?category=786675)
 - [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
+
+
+
+# 06.12 회의 추가 사항
+
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MDU3MDU5OSwyNTM4NjA5MDIsLTEzOT
-A0NzQ5MjAsLTI4OTIwMjc5OV19
+eyJoaXN0b3J5IjpbMjkyNTczMDUsMjUzODYwOTAyLC0xMzkwND
+c0OTIwLC0yODkyMDI3OTldfQ==
 -->
