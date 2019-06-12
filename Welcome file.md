@@ -37,12 +37,10 @@
 
 ## 2) 영화
 
-- 참고 어플 - 삐끼: 3사통합해서 예매정보?예매오픈했는지 알려줌, 아이폰안드웹 지원) 
+- 참고 어플 - 삐끼: 3사통합해서 예매정보?예매오픈 정보 (아이폰, 안드,웹 지원) 
 
-데이터는 웹크롤링으로 다 긁어올 수 있을듯
-모든 영화에 대한 정보는 공공디비에서 가져올수있음
-
-게시판은 그냥 스프링 마이바티스 등등 사용
+- 데이터는 웹크롤링으로 
+- 게시판- 그냥 스프링 마이바티스 등등 사용
 
 로그인은 구글 페이스북 카톡등등 오픈api사용
 스프링 시큐리티같은걸로 직접 구현하는것도 큰 도움이 될듯! 
@@ -113,6 +111,6 @@
 - [페이스북 로그인](https://gdtbgl93.tistory.com/75?category=786675)
 - [구글 로그인](https://gdtbgl93.tistory.com/73?category=786675)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5Nzg0NzUxMCwtMTM5MDQ3NDkyMCwtMj
-g5MjAyNzk5XX0=
+eyJoaXN0b3J5IjpbMjUzODYwOTAyLC0xMzkwNDc0OTIwLC0yOD
+kyMDI3OTldfQ==
 -->
