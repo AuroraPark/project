@@ -1,6 +1,11 @@
 > 06.12 회의 추가됨
 
-- 
+사용 툴
+- git
+- slack
+- aws
+- sts
+
 
 
 # 1. 주제선정
@@ -124,6 +129,6 @@
 - RSA
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NzM0MDE3MSwtNTMxNTY5MjgxLDI1Mz
+eyJoaXN0b3J5IjpbMTE4NDM1MjIxNiwtNTMxNTY5MjgxLDI1Mz
 g2MDkwMiwtMTM5MDQ3NDkyMCwtMjg5MjAyNzk5XX0=
 -->
