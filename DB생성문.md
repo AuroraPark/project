@@ -1795,9 +1795,14 @@ DROP SEQUENCE seq_bfr_rno;
 ```
 
 # 3. MML_CONTENT 테이블 수정사항입니다.
-1. mi_code : number -> varchar2(100)
-2. mi_code에 여러개의 영화코드가 들어감(ex: 3,5,1,4)
-3. mml_poster에 여러개의 영화포스터 파일명이 들어감(ex:test.jpg,test1.jpg,test2.jpg) -> 첫번째 파일명을 추출해서 썸네일로 사용하면 됨
+1. member : m_image VARCHAR(100)<크기 늘림>  
+2. movie_info : mi_story VARCHAR2(1000)<크기늘림>  
+3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
+4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
+5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용  
+6. FK_movie_info_TO_mml_content 는 만들지 않는게 좋을거같아용(이거를 생성하면 mml_content의 mi_code에 영화코드 1개만 넣을 수 있음)오잉 밑에 더 있었네용  
+mml_content수정사항에 4번 6번 있습니당!  
+나중에 db생성문에서 아예 적용해주는것도 좋을것 같습니댱
 
 ```
 ALTER TABLE mml_content DROP CONSTRAINT fk_movie_info_to_mml_content;
@@ -1821,5 +1826,5 @@ end;
 /
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
 -->
