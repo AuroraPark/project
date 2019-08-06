@@ -1784,6 +1784,11 @@ create sequence seq_bfr_rno
    increment by 1
    nomaxvalue
    nocycle;
+create sequence seq_member_id
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
 ```
 
 # 2. (필요시) 시퀀스 삭제문
@@ -1846,6 +1851,7 @@ end;
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NTE5OTkwNywtMTAxNjIwNjUxMyw2Nz
-IyNzE4MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
+eyJoaXN0b3J5IjpbODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMT
+YyMDY1MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4
+M119
 -->
