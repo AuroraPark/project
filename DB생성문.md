@@ -1,4 +1,4 @@
-# 0. db생성문
+# 0. 사용db생성문
 
 ```
 ALTER TABLE board_free
@@ -1841,6 +1841,6 @@ end;
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTYyMDY1MTMsNjcyMjcxODA5LDEwNj
-k5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbMzU3Nzc4MDM0LC0xMDE2MjA2NTEzLDY3Mj
+I3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ==
 -->
