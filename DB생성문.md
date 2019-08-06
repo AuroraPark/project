@@ -1829,7 +1829,11 @@ end;
 6. movie_info 테이블의 mi_gcode 20에서 50으로 크기 늘렸습니다
 
 7. movie_info 에 상영시간 칼럼이 없네MI_TIME 칼럼 추가
+
+8. movie_rev 테이블에 신고수 칼럼이 없네요. mr_alert 추가
+
+9. mr_thumb의 bf_thumb pk 제거
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAzMDc3Mzk2LDEwNjk5ODQwNTgsLTM4OD
+eyJoaXN0b3J5IjpbNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4OD
 MwNzc4M119
 -->
