@@ -1800,7 +1800,7 @@ DROP SEQUENCE seq_bfr_rno;
 3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
 4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
 5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용  
-6. FK_movie_info_TO_mml_content 는 만들지 않는게 좋을거같아용(이거를 생성하면 mml_content의 mi_code에 영화코드 1개만 넣을 수 있음)오잉 밑에 더 있었네용  
+6. FK_movie_info_TO_mml_content 는 만들지 않는게 좋을거같아용(이거를 생성하면 mml_content의 mi_code에 영화코드 1개만 넣을 수 있음)
 mml_content수정사항에 4번 6번 있습니당!  
 나중에 db생성문에서 아예 적용해주는것도 좋을것 같습니댱
 
@@ -1816,7 +1816,7 @@ ALTER TABLE board_free ADD(bf_recommend NUMBER);
 ALTER TABLE board_free ADD(bf_decommend NUMBER);
 ```
 
-# 5. 트리거(board_qna삭제시 admin_qna삭제)
+# 5. 트리거 추가(board_qna삭제시 admin_qna삭제)
 ```
 create or replace trigger boardQna_to_adQna_delete
 before delete on BOARD_QNA for each row
@@ -1834,6 +1834,6 @@ end;
 
 9. mr_thumb의 bf_thumb pk 제거
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4OD
-MwNzc4M119
+eyJoaXN0b3J5IjpbLTE3NTg5NjQxNDAsNjcyMjcxODA5LDEwNj
+k5ODQwNTgsLTM4ODMwNzc4M119
 -->
