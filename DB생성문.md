@@ -1,5 +1,10 @@
-# 0. 사용db생성문
+# 0. 사용자 생성 & db생성문
 
+```
+create user blockbuster identified by 1234  
+default tablespace users  
+temporary tablespace temp;grant connect, dba to blockbuster;
+```
 ```
 ALTER TABLE board_free
 	DROP
@@ -1841,6 +1846,6 @@ end;
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU3Nzc4MDM0LC0xMDE2MjA2NTEzLDY3Mj
-I3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ==
+eyJoaXN0b3J5IjpbLTQ5NTE5OTkwNywtMTAxNjIwNjUxMyw2Nz
+IyNzE4MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
 -->
