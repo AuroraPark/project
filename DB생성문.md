@@ -1152,12 +1152,12 @@ ALTER TABLE bs_reply
 			bsr_rno
 		);
 
-/* sr_warnning */
-CREATE TABLE sr_warnning (
+/* bsr_warnning */
+CREATE TABLE bsr_warnning (
 	id NUMBER NOT NULL, /* 신고자 */
 	bsr_rno NUMBER, /* 나눔댓글번호 */
-	bs_date DATE NOT NULL /* 신고날짜 */
-	bs_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
+	bsr_date DATE NOT NULL /* 신고날짜 */
+	bsr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* board_qna */
@@ -1909,7 +1909,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjMxOTg5NzUsMTkyOTc0MzM2MiwtNj
+eyJoaXN0b3J5IjpbLTE2NDUxNTk1ODksMTkyOTc0MzM2MiwtNj
 g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
 NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
 ==
