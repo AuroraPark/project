@@ -1015,7 +1015,7 @@ ALTER TABLE cr_warning
 /* mml_content */
 CREATE TABLE mml_content (
 	mml_num NUMBER NOT NULL, /* 나영리코드 */
-	mi_code NUMBER NOT NULL, /* 영화코드(여러개 넣을 수 있음) */
+	mi_code VARCHAR2(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */
 	id NUMBER NOT NULL, /* 나영리ID(시퀀스) */
 	mml_view_count NUMBER, /* 나영리조회수 */
 	mml_write_date DATE NOT NULL, /* 나영리등록일 */
@@ -1910,7 +1910,8 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3OTQ3Mjc4MywxOTI5NzQzMzYyLC02OD
-U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
-MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbLTE3MTAzODgzNDksMTkyOTc0MzM2MiwtNj
+g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
+NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
+==
 -->
