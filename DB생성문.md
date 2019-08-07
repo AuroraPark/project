@@ -655,7 +655,7 @@ ALTER TABLE bf_reply
 CREATE TABLE member (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
 	m_nickname VARCHAR2(30) NOT NULL, /* 닉네임 */
-	m_image VARCHAR2(30), /* 프로필 사진 */
+	m_image VARCHAR2(100), /* 프로필 사진 */
 	m_email VARCHAR2(100) NOT NULL, /* 이메일 */
 	m_eagree VARCHAR2(2) NOT NULL, /* 이메일 수신동의 */
 	m_sagree VARCHAR2(2) NOT NULL, /* SMS수신동의 */
@@ -707,7 +707,7 @@ ALTER TABLE sns_info
 
 /* movie_info */
 CREATE TABLE movie_info (
-	mi_code NUMBER NOT NULL, /* 영화코드 */
+	mi_code NUMBER NOT NULL, /* **영화고유코드*/
 	mi_ktitle VARCHAR2(50) NOT NULL, /* 영화이름 */
 	mi_etitle VARCHAR2(50) NOT NULL, /* 영화이름(eng) */
 	mi_director VARCHAR2(50) NOT NULL, /* 감독 */
@@ -715,7 +715,7 @@ CREATE TABLE movie_info (
 	mi_releaseday DATE, /* 개봉일 */
 	mi_ccode VARCHAR2(40), /* 국가명 */
 	mi_actor VARCHAR2(200), /* 출연배우 */
-	mi_story VARCHAR2(500), /* 줄거리 */
+	mi_story VARCHAR2(1000), /* 줄거리 */
 	mi_teaser VARCHAR2(500), /* 티저 */
 	grade_code VARCHAR2(20), /* 심의등급 */
 	mi_gcode VARCHAR2(20) /* 장르 */
@@ -1839,7 +1839,7 @@ create sequence seq_member_id
    nocycle;
 ```
 
-# 2. (필요시) 시퀀스 삭제문
+/* 2. (필요시) 시퀀스 삭제문
 
 ```
 DROP SEQUENCE seq_mf_code;
@@ -1851,9 +1851,10 @@ DROP SEQUENCE seq_bf_bno;
 DROP SEQUENCE seq_bs_rno;
 DROP SEQUENCE seq_bfr_rno;
 ```
+*/
 
 # 3. MML_CONTENT 테이블 수정사항입니다.
-1. member : m_image VARCHAR(100)<크기 늘림>alter,,, ,,,,,  
+1. member : m_image VARCHAR(100)<크기 늘림>
 2. movie_info : mi_story VARCHAR2(1000)<크기늘림>  
 3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
 4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
@@ -1899,7 +1900,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MzcyMDU3OCwxOTI5NzQzMzYyLC02OD
-U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
-MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbNTE5ODgyMzQ5LDE5Mjk3NDMzNjIsLTY4NT
+c4ODc1Miw4MDU2Nzg2NzIsLTQ5NTE5OTkwNywtMTAxNjIwNjUx
+Myw2NzIyNzE4MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
 -->
