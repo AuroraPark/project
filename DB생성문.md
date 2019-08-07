@@ -707,7 +707,7 @@ ALTER TABLE sns_info
 
 /* movie_info */
 CREATE TABLE movie_info (
-	mi_code NUMBER NOT NULL, /* **영화고유코드*/
+	mi_code NUMBER NOT NULL, /* 영화코드 */
 	mi_ktitle VARCHAR2(50) NOT NULL, /* 영화이름 */
 	mi_etitle VARCHAR2(50) NOT NULL, /* 영화이름(eng) */
 	mi_director VARCHAR2(50) NOT NULL, /* 감독 */
@@ -1010,7 +1010,7 @@ ALTER TABLE cr_warning
 /* mml_content */
 CREATE TABLE mml_content (
 	mml_num NUMBER NOT NULL, /* 나영리코드 */
-	mi_code NUMBER NOT NULL, /* 영화코드 */
+	mi_code NUMBER NOT NULL, /* 영화코드(여러개 넣을 수 있음) */
 	id NUMBER NOT NULL, /* 나영리ID(시퀀스) */
 	mml_view_count NUMBER, /* 나영리조회수 */
 	mml_write_date DATE NOT NULL, /* 나영리등록일 */
@@ -1900,7 +1900,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE5ODgyMzQ5LDE5Mjk3NDMzNjIsLTY4NT
+eyJoaXN0b3J5IjpbMjUzMzgyNjI1LDE5Mjk3NDMzNjIsLTY4NT
 c4ODc1Miw4MDU2Nzg2NzIsLTQ5NTE5OTkwNywtMTAxNjIwNjUx
 Myw2NzIyNzE4MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
 -->
