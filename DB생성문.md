@@ -1529,16 +1529,6 @@ ALTER TABLE mml_content
 			id
 		);
 
-ALTER TABLE mml_content
-	ADD
-		CONSTRAINT FK_movie_info_TO_mml_content
-		FOREIGN KEY (
-			mi_code
-		)
-		REFERENCES movie_info (
-			mi_code
-		);
-
 ALTER TABLE mml_reply
 	ADD
 		CONSTRAINT FK_member_TO_mml_reply
@@ -1910,8 +1900,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTAzODgzNDksMTkyOTc0MzM2MiwtNj
-g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
-NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
-==
+eyJoaXN0b3J5IjpbLTYxNjE1NjA2MiwxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
