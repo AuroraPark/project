@@ -1794,6 +1794,11 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
+
+
+ALTER TABLE mml_content DROP CONSTRAINT fk_movie_info_to_mml_content;
+ALTER TABLE MML_CONTENT MODIFY (MI_CODE VARCHAR2(100) );
+
 ```
 ```
 
@@ -1909,7 +1914,8 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NTg1MDMwNywxOTI5NzQzMzYyLC02OD
-U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
-MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbLTE1MDI1NTQ0NTksMTkyOTc0MzM2MiwtNj
+g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
+NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
+==
 -->
