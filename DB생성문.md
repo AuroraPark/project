@@ -934,7 +934,7 @@ ALTER TABLE delete_member
 CREATE TABLE free_warnning (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
-	bf_date DATE NOT NULL /* 신고날짜 */
+	bf_date DATE NOT NULL, /* 신고날짜 */
 	bf_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -942,7 +942,7 @@ CREATE TABLE free_warnning (
 CREATE TABLE bs_warning (
 	id NUMBER NOT NULL, /* 나눔신고자 */
 	bs_bno NUMBER NOT NULL, /* 나눔글번호 */
-	bs_date DATE NOT NULL /* 신고날짜 */
+	bs_date DATE NOT NULL, /* 신고날짜 */
 	bs_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -969,7 +969,7 @@ ALTER TABLE mr_thumb
 CREATE TABLE mr_warning (
 	id NUMBER NOT NULL, /* 영화리뷰신고자 */
 	mr_code NUMBER NOT NULL, /* 영화리뷰코드 */
-	mr_date DATE NOT NULL /* 신고날짜 */
+	mr_date DATE NOT NULL, /* 신고날짜 */
 	mr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -995,7 +995,7 @@ ALTER TABLE cr_thumb
 /* cr_warnning */
 CREATE TABLE cr_warning (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
-	cr_code NUMBER NOT NULL /* 영화관리뷰코드 */
+	cr_code NUMBER NOT NULL, /* 영화관리뷰코드 */
 	cr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -1156,7 +1156,7 @@ ALTER TABLE bs_reply
 CREATE TABLE bsr_warnning (
 	id NUMBER NOT NULL, /* 신고자 */
 	bsr_rno NUMBER, /* 나눔댓글번호 */
-	bsr_date DATE NOT NULL /* 신고날짜 */
+	bsr_date DATE NOT NULL, /* 신고날짜 */
 	bsr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -1909,7 +1909,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDUxNTk1ODksMTkyOTc0MzM2MiwtNj
+eyJoaXN0b3J5IjpbLTE3NzU3NTczNDcsMTkyOTc0MzM2MiwtNj
 g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
 NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
 ==
