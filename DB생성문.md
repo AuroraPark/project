@@ -1786,6 +1786,14 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
+/* 트리거 생성 */
+create or replace trigger boardQna_to_adQna_delete
+before delete on BOARD_QNA for each row
+begin
+delete AD_QNA where qna_no = :old.qna_no;
+end;
+/
+
 ```
 ```
 
@@ -1837,6 +1845,7 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
+   
 ```
 0807 수정완료
 /* 2. (필요시) 시퀀스 삭제문
@@ -1901,8 +1910,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDE2NjI2MTMsMTkyOTc0MzM2MiwtNj
-g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
-NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
-==
+eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
