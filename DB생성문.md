@@ -935,6 +935,7 @@ CREATE TABLE free_warnning (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bf_date DATE NOT NULL /* 신고날짜 */
+	bf_warncontent NOT NULL
 );
 
 /* bs_warning */
@@ -1901,7 +1902,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNTM0NDU4OCwxOTI5NzQzMzYyLC02OD
+eyJoaXN0b3J5IjpbMTAwNDI2NjI2MiwxOTI5NzQzMzYyLC02OD
 U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
 MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
