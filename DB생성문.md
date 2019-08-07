@@ -1805,7 +1805,7 @@ DROP SEQUENCE seq_bfr_rno;
 ```
 
 # 3. MML_CONTENT 테이블 수정사항입니다.
-1. member : m_image VARCHAR(100)<크기 늘림>  
+1. member : m_image VARCHAR(100)<크기 늘림>alter,,, ,,,,,  
 2. movie_info : mi_story VARCHAR2(1000)<크기늘림>  
 3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
 4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
@@ -1851,7 +1851,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjcxMDc3NDAsLTY4NTc4ODc1Miw4MD
-U2Nzg2NzIsLTQ5NTE5OTkwNywtMTAxNjIwNjUxMyw2NzIyNzE4
-MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
+eyJoaXN0b3J5IjpbMTkyOTc0MzM2MiwtNjg1Nzg4NzUyLDgwNT
+Y3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2NTEzLDY3MjI3MTgw
+OSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ==
 -->
