@@ -1124,7 +1124,7 @@ CREATE TABLE bfr_warning (
 	bfr_rno NUMBER NOT NULL, /* 자유댓글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bfr_date DATE NOT NULL /* 신고날짜 */
-	bf_ncontent VARCHAR2(100) NOT NULL /* 신고사유 */
+	bfr_ncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* bs_reply */
@@ -1908,7 +1908,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NDcyMDY5MSwxOTI5NzQzMzYyLC02OD
+eyJoaXN0b3J5IjpbMTg1MTM0NzI4MywxOTI5NzQzMzYyLC02OD
 U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
 MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
