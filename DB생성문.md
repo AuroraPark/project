@@ -602,7 +602,8 @@ DROP TABLE black_spam
 CREATE TABLE board_free (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 자유작성자 */
-	bf_thumb NUMBER, /* 자유추천/비추천 */
+	bf_recommend NUMBER, /* 자유추천수 */
+	bf_decommend NUMBER, /* 자유비추천수 */
 	bf_category VARCHAR2(50) NOT NULL, /* 자유카테고리 */
 	bf_title VARCHAR2(55) NOT NULL, /* 자유글제목 */
 	bf_reg_date DATE NOT NULL, /* 자유등록일 */
@@ -1900,7 +1901,8 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxNjE1NjA2MiwxOTI5NzQzMzYyLC02OD
-U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
-MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbLTE2MDE2NjI2MTMsMTkyOTc0MzM2MiwtNj
+g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
+NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
+==
 -->
