@@ -905,7 +905,8 @@ ALTER TABLE board_share
 CREATE TABLE ad_member (
 	admin_num NUMBER NOT NULL, /* 관리자번호 */
 	admin_id VARCHAR2(20) NOT NULL, /* 관리자ID */
-	admin_password VARCHAR2(30) NOT NULL /* 관리자비밀번호 */
+	admin_password VARCHAR2(30) NOT NULL, /* 관리자비밀번호 */
+	admin_name VARCHAR2(20) NOT NULL /* 관리자 이름 */
 );
 
 CREATE UNIQUE INDEX PK_ad_member
@@ -1785,6 +1786,12 @@ create sequence seq_member_id
    nomaxvalue
    nocycle;
    
+create sequence seq_ad_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
 /* 트리거 생성 */
 
 create or replace trigger boardQna_to_adQna_delete
@@ -1941,8 +1948,23 @@ CREATE TABLE bsr_warnning (
 	bsr_warncontent VARCHAR2(50) NOT NULL /* 신고사유 */
 ); 
 ```
-
+0807 수정완료
 # 11. 모든 warnning -> warning 으로 변경
+
+0807 수정완료
+# 12. ad_member 에  admin_name VARCHAR2(20) NOT NULL /* 관리자 이름 */ 추가
+
+0807 수정완료
+# 13. ad_qna 시퀀스 추가
+```
+create sequence seq_ad_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+```
+
+
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
