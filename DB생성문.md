@@ -1739,6 +1739,54 @@ ALTER TABLE blacklist
 		REFERENCES member (
 			id
 		);
+
+/* 시퀀스 생성문 */
+create sequence seq_mf_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_mml_reply_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_mml_num
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bs_bno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bf_bno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bs_rno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bfr_rno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_member_id
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+```
 ```
 
 
@@ -1851,7 +1899,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyOTc0MzM2MiwtNjg1Nzg4NzUyLDgwNT
-Y3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2NTEzLDY3MjI3MTgw
-OSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ==
+eyJoaXN0b3J5IjpbLTI4MzcyMDU3OCwxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
