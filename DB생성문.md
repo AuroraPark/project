@@ -1930,6 +1930,20 @@ ALTER TABLE mr_thumb
 		);
 ```
 
+0807 수정완료
+# 10. sr -> bsr로
+```
+/* bsr_warnning */
+CREATE TABLE bsr_warnning (
+	id NUMBER NOT NULL, /* 신고자 */
+	bsr_rno NUMBER, /* 나눔댓글번호 */
+	bsr_date DATE NOT NULL, /* 신고날짜 */
+	bsr_warncontent VARCHAR2(50) NOT NULL /* 신고사유 */
+); 
+```
+
+# 11. 모든 warnning -> warning 으로 변경
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
 U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
