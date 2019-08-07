@@ -1846,12 +1846,12 @@ end;
 # 8. movie_rev 테이블에 신고수 칼럼이 없네요. mr_alert 추가
 
 - movie_rev : mr_alert 추가
-
+```
+```
 # 9. mr_thumb의 bf_thumb pk 제거
 
- ㄹㄹ
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NTc4ODc1Miw4MDU2Nzg2NzIsLTQ5NT
-E5OTkwNywtMTAxNjIwNjUxMyw2NzIyNzE4MDksMTA2OTk4NDA1
-OCwtMzg4MzA3NzgzXX0=
+eyJoaXN0b3J5IjpbLTE2MjcxMDc3NDAsLTY4NTc4ODc1Miw4MD
+U2Nzg2NzIsLTQ5NTE5OTkwNywtMTAxNjIwNjUxMyw2NzIyNzE4
+MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
 -->
