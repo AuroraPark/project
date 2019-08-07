@@ -1,3 +1,4 @@
+
 # 0. 사용자 생성 & db생성문
 
 ```
@@ -86,14 +87,14 @@ ALTER TABLE delete_member
 		CONSTRAINT FK_member_TO_delete_member
 		CASCADE;
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	DROP
-		CONSTRAINT FK_board_free_TO_free_warnning
+		CONSTRAINT FK_board_free_TO_free_warning
 		CASCADE;
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	DROP
-		CONSTRAINT FK_member_TO_free_warnning
+		CONSTRAINT FK_member_TO_free_warning
 		CASCADE;
 
 ALTER TABLE bs_warning
@@ -221,14 +222,14 @@ ALTER TABLE bs_reply
 		CONSTRAINT FK_member_TO_bs_reply
 		CASCADE;
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	DROP
-		CONSTRAINT FK_member_TO_sr_warnning
+		CONSTRAINT FK_member_TO_sr_warning
 		CASCADE;
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	DROP
-		CONSTRAINT FK_bs_reply_TO_sr_warnning
+		CONSTRAINT FK_bs_reply_TO_sr_warning
 		CASCADE;
 
 ALTER TABLE board_qna
@@ -517,8 +518,8 @@ DROP TABLE ad_member
 DROP TABLE delete_member 
 	CASCADE CONSTRAINTS;
 
-/* free_warnning */
-DROP TABLE free_warnning 
+/* free_warning */
+DROP TABLE free_warning 
 	CASCADE CONSTRAINTS;
 
 /* bs_warning */
@@ -529,7 +530,7 @@ DROP TABLE bs_warning
 DROP TABLE mr_thumb 
 	CASCADE CONSTRAINTS;
 
-/* mr_warnning */
+/* mr_warning */
 DROP TABLE mr_warning 
 	CASCADE CONSTRAINTS;
 
@@ -537,7 +538,7 @@ DROP TABLE mr_warning
 DROP TABLE cr_thumb 
 	CASCADE CONSTRAINTS;
 
-/* cr_warnning */
+/* cr_warning */
 DROP TABLE cr_warning 
 	CASCADE CONSTRAINTS;
 
@@ -573,8 +574,8 @@ DROP TABLE bfr_warning
 DROP TABLE bs_reply 
 	CASCADE CONSTRAINTS;
 
-/* sr_warnning */
-DROP TABLE sr_warnning 
+/* sr_warning */
+DROP TABLE sr_warning 
 	CASCADE CONSTRAINTS;
 
 /* board_qna */
@@ -930,8 +931,8 @@ ALTER TABLE delete_member
 			id
 		);
 
-/* free_warnning */
-CREATE TABLE free_warnning (
+/* free_warning */
+CREATE TABLE free_warning (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bf_date DATE NOT NULL, /* 신고날짜 */
@@ -965,7 +966,7 @@ ALTER TABLE mr_thumb
 			bf_thumb
 		);
 
-/* mr_warnning */
+/* mr_warning */
 CREATE TABLE mr_warning (
 	id NUMBER NOT NULL, /* 영화리뷰신고자 */
 	mr_code NUMBER NOT NULL, /* 영화리뷰코드 */
@@ -992,7 +993,7 @@ ALTER TABLE cr_thumb
 			cr_thumb
 		);
 
-/* cr_warnning */
+/* cr_warning */
 CREATE TABLE cr_warning (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
 	cr_code NUMBER NOT NULL, /* 영화관리뷰코드 */
@@ -1152,8 +1153,8 @@ ALTER TABLE bs_reply
 			bsr_rno
 		);
 
-/* bsr_warnning */
-CREATE TABLE bsr_warnning (
+/* bsr_warning */
+CREATE TABLE bsr_warning (
 	id NUMBER NOT NULL, /* 신고자 */
 	bsr_rno NUMBER, /* 나눔댓글번호 */
 	bsr_date DATE NOT NULL, /* 신고날짜 */
@@ -1398,9 +1399,9 @@ ALTER TABLE delete_member
 			id
 		);
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	ADD
-		CONSTRAINT FK_board_free_TO_free_warnning
+		CONSTRAINT FK_board_free_TO_free_warning
 		FOREIGN KEY (
 			bf_bno
 		)
@@ -1408,9 +1409,9 @@ ALTER TABLE free_warnning
 			bf_bno
 		);
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	ADD
-		CONSTRAINT FK_member_TO_free_warnning
+		CONSTRAINT FK_member_TO_free_warning
 		FOREIGN KEY (
 			id
 		)
@@ -1668,9 +1669,9 @@ ALTER TABLE bs_reply
 			id
 		);
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	ADD
-		CONSTRAINT FK_member_TO_sr_warnning
+		CONSTRAINT FK_member_TO_sr_warning
 		FOREIGN KEY (
 			id
 		)
@@ -1678,9 +1679,9 @@ ALTER TABLE sr_warnning
 			id
 		);
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	ADD
-		CONSTRAINT FK_bs_reply_TO_sr_warnning
+		CONSTRAINT FK_bs_reply_TO_sr_warning
 		FOREIGN KEY (
 			bsr_rno
 		)
@@ -1794,11 +1795,6 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
-
-
-ALTER TABLE mml_content DROP CONSTRAINT fk_movie_info_to_mml_content;
-ALTER TABLE MML_CONTENT MODIFY (MI_CODE VARCHAR2(100) );
-
 ```
 ```
 
@@ -1914,8 +1910,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDI1NTQ0NTksMTkyOTc0MzM2MiwtNj
-g1Nzg4NzUyLDgwNTY3ODY3MiwtNDk1MTk5OTA3LC0xMDE2MjA2
-NTEzLDY3MjI3MTgwOSwxMDY5OTg0MDU4LC0zODgzMDc3ODNdfQ
-==
+eyJoaXN0b3J5IjpbMjA3OTQ3Mjc4MywxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
