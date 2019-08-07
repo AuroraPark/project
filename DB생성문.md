@@ -1789,7 +1789,7 @@ create sequence seq_member_id
 ```
 ```
 
-
+0807 수정완료
 # 1. 시퀀스 생성문
 ```
 create sequence seq_mf_code
@@ -1838,7 +1838,7 @@ create sequence seq_member_id
    nomaxvalue
    nocycle;
 ```
-
+0807 수정완료
 /* 2. (필요시) 시퀀스 삭제문
 
 ```
@@ -1853,12 +1853,13 @@ DROP SEQUENCE seq_bfr_rno;
 ```
 */
 
+0807 수정완료
 # 3. MML_CONTENT 테이블 수정사항입니다.
 1. member : m_image VARCHAR(100)<크기 늘림>
 2. movie_info : mi_story VARCHAR2(1000)<크기늘림>  
 3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
 4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
-5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용  
+5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용(warn_content) 
 6. FK_movie_info_TO_mml_content 는 만들지 않는게 좋을거같아용(이거를 생성하면 mml_content의 mi_code에 영화코드 1개만 넣을 수 있음)
 mml_content수정사항에 4번 6번 있습니당!  
 나중에 db생성문에서 아예 적용해주는것도 좋을것 같습니댱
@@ -1900,7 +1901,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUzMzgyNjI1LDE5Mjk3NDMzNjIsLTY4NT
-c4ODc1Miw4MDU2Nzg2NzIsLTQ5NTE5OTkwNywtMTAxNjIwNjUx
-Myw2NzIyNzE4MDksMTA2OTk4NDA1OCwtMzg4MzA3NzgzXX0=
+eyJoaXN0b3J5IjpbMjAwNTM0NDU4OCwxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
