@@ -1,11 +1,16 @@
 
-# 0. 사용자 생성 & db생성문
+# 0. 사용자 생성 & db생성문 (0807수정 )
+
+> 사용자 생성
 
 ```
 create user blockbuster identified by 1234  
 default tablespace users  
 temporary tablespace temp;grant connect, dba to blockbuster;
 ```
+
+> db 생성
+
 ```
 ALTER TABLE board_free
 	DROP
@@ -720,7 +725,8 @@ CREATE TABLE movie_info (
 	mi_story VARCHAR2(1000), /* 줄거리 */
 	mi_teaser VARCHAR2(500), /* 티저 */
 	grade_code VARCHAR2(20), /* 심의등급 */
-	mi_gcode VARCHAR2(20) /* 장르 */
+	mi_gcode VARCHAR2(50), /* 장르 */
+    mi_time VARCHAR2(20) /* 상영시간 */
 );
 
 CREATE UNIQUE INDEX PK_movie_info
@@ -745,7 +751,8 @@ CREATE TABLE movie_rev (
 	mr_dislike NUMBER, /* 비추천수 */
 	mr_update_date DATE NOT NULL, /* 영화리뷰수정일 */
 	mr_score NUMBER NOT NULL, /* 영화리뷰별점 */
-	mr_content VARCHAR2(300) NOT NULL /* 영화리뷰평가내용 */
+	mr_content VARCHAR2(300) NOT NULL, /* 영화리뷰평가내용 */
+    mr_alert NUMBER /* 신고수 */
 );
 
 CREATE UNIQUE INDEX PK_movie_rev
@@ -955,17 +962,7 @@ CREATE TABLE mr_thumb (
 	id NUMBER NOT NULL /* 영화리뷰ID(시퀀스) */
 );
 
-CREATE UNIQUE INDEX PK_mr_thumb
-	ON mr_thumb (
-		bf_thumb ASC
-	);
 
-ALTER TABLE mr_thumb
-	ADD
-		CONSTRAINT PK_mr_thumb
-		PRIMARY KEY (
-			bf_thumb
-		);
 
 /* mr_warning */
 CREATE TABLE mr_warning (
@@ -1878,6 +1875,7 @@ ALTER TABLE mml_content DROP CONSTRAINT fk_movie_info_to_mml_content;
 ALTER TABLE MML_CONTENT MODIFY (MI_CODE VARCHAR2(100) );
 ```
 
+0807 수정완료
 # 4. board_free 수정
 ```
 ALTER TABLE board_free DROP COLUMN bf_thumb;
@@ -1885,6 +1883,7 @@ ALTER TABLE board_free ADD(bf_recommend NUMBER);
 ALTER TABLE board_free ADD(bf_decommend NUMBER);
 ```
 
+0807 수정완료
 # 5. 트리거 추가(board_qna삭제시 admin_qna삭제)
 ```
 create or replace trigger boardQna_to_adQna_delete
@@ -1895,19 +1894,37 @@ end;
 /
 ```
 
+0807 수정완료
 # 6. movie_info 테이블의 mi_gcode 20에서 50으로 크기 늘렸습니다
 - movie_info : mi_gcode(20) -> (50)
 
+0807 수정완료
 # 7. movie_info 에 상영시간 칼럼이 없네MI_TIME 칼럼 추가
 
 - movie_info : MI_TIME (상영시간) 컬럼 추가
 
+0807 수정완료
 # 8. movie_rev 테이블에 신고수 칼럼이 없네요. mr_alert 추가
 
 - movie_rev : mr_alert 추가
-```
-```
+
+0807 수정완료
 # 9. mr_thumb의 bf_thumb pk 제거
+
+```
+--필요시 추가
+CREATE UNIQUE INDEX PK_mr_thumb
+	ON mr_thumb (
+		bf_thumb ASC
+	);
+
+ALTER TABLE mr_thumb
+	ADD
+		CONSTRAINT PK_mr_thumb
+		PRIMARY KEY (
+			bf_thumb
+		);
+```
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
