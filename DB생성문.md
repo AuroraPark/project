@@ -1738,6 +1738,7 @@ ALTER TABLE blacklist
 		);
 
 /* 시퀀스 생성문 */
+
 create sequence seq_mf_code
    start with 1
    increment by 1
@@ -1783,7 +1784,9 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
+   
 /* 트리거 생성 */
+
 create or replace trigger boardQna_to_adQna_delete
 before delete on BOARD_QNA for each row
 begin
@@ -1792,7 +1795,7 @@ end;
 /
 
 ```
-```
+
 
 0807 수정완료
 # 1. 시퀀스 생성문
@@ -1844,8 +1847,9 @@ create sequence seq_member_id
    nocycle;
    
 ```
+
 0807 수정완료
-/* 2. (필요시) 시퀀스 삭제문
+# 2. (필요시) 시퀀스 삭제문
 
 ```
 DROP SEQUENCE seq_mf_code;
@@ -1857,7 +1861,7 @@ DROP SEQUENCE seq_bf_bno;
 DROP SEQUENCE seq_bs_rno;
 DROP SEQUENCE seq_bfr_rno;
 ```
-*/
+
 
 0807 수정완료
 # 3. MML_CONTENT 테이블 수정사항입니다.
