@@ -1067,6 +1067,7 @@ CREATE TABLE mml_warning (
 	mml_num NUMBER NOT NULL, /* 나영리코드 */
 	id NUMBER NOT NULL, /* 나영리신고자ID(시퀀스) */
 	mml_date DATE NOT NULL /* 신고날짜 */
+	mml_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* mmlr_warning */
@@ -1074,6 +1075,7 @@ CREATE TABLE mmlr_warning (
 	mml_reply_code NUMBER NOT NULL, /* 나영리리뷰코드 */
 	id NUMBER NOT NULL, /* 나영리리뷰ID(시퀀스) */
 	mml_reply_date DATE NOT NULL /* 신고날짜 */
+	mml_reply_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* member_follow */
@@ -1122,6 +1124,7 @@ CREATE TABLE bfr_warning (
 	bfr_rno NUMBER NOT NULL, /* 자유댓글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bfr_date DATE NOT NULL /* 신고날짜 */
+	bf_ncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* bs_reply */
@@ -1905,7 +1908,7 @@ end;
 # 9. mr_thumb의 bf_thumb pk 제거
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NDIwMDk5OSwxOTI5NzQzMzYyLC02OD
+eyJoaXN0b3J5IjpbLTM5NDcyMDY5MSwxOTI5NzQzMzYyLC02OD
 U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
 MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
