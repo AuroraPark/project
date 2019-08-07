@@ -667,7 +667,7 @@ CREATE TABLE member (
 	m_eagree VARCHAR2(2) NOT NULL, /* 이메일 수신동의 */
 	m_sagree VARCHAR2(2) NOT NULL, /* SMS수신동의 */
 	m_name VARCHAR2(20) NOT NULL, /* 이름 */
-	m_phone NUMBER NOT NULL, /* 전화번호 */
+	m_phone VARCHAR2(50) NOT NULL, /* 전화번호 */
 	m_cert VARCHAR2(2) NOT NULL, /* 이메일 인증여부 */
 	m_password VARCHAR2(40) NOT NULL, /* 패스워드 */
 	m_regdate DATE NOT NULL, /* 회원가입일 */
