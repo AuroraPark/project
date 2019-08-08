@@ -1792,6 +1792,12 @@ create sequence seq_ad_qna_no
    nomaxvalue
    nocycle;
    
+create sequence seq_ad_notice_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
 /* 트리거 생성 */
 
 create or replace trigger boardQna_to_adQna_delete
@@ -1964,6 +1970,15 @@ create sequence seq_ad_qna_no
    nocycle;
 ```
 
+0808 수정완료
+# 14. ad_notice 시퀀스 추가유~
+```
+create sequence seq_ad_notice_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+```
 
 
 <!--stackedit_data:
