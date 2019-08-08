@@ -27,7 +27,18 @@ insert into mml_content values (seq_mml_num.nextval, 1, 2, 0, sysdate, sysdate,
 
 INSERT INTO ad_notice VALUES (seq_ad_notice_no.nextval, 1, '공지 내용 뭐넣지!!!!'
     ,'공지사항 제목!!', sysdate, sysdate );
+
+> /* 1:1 문의 등록 */
+
+insert into board_qna values (seq_qna_no.nextval, 2, '문의', '문의제목드립니다.'
+		, '문의내용입니다!!!!!!!!!!!!!!!!!!!!11!', sysdate, sysdate, 'N');
+    
+> /* 1:1 답변 등록 */
+
+insert into ad_qna values (seq_ad_qna_no.nextval, 1, '답변내용입니다!!!!!', sysdate, sysdate, 2);
+
+
     
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDkwOTE2NzJdfQ==
+eyJoaXN0b3J5IjpbNDg5NDQzOTEyLC0xODQ5MDkxNjcyXX0=
 -->
