@@ -722,11 +722,11 @@ CREATE TABLE movie_info (
 	mi_releaseday DATE, /* 개봉일 */
 	mi_ccode VARCHAR2(40), /* 국가명 */
 	mi_actor VARCHAR2(200), /* 출연배우 */
-	mi_story VARCHAR2(1000), /* 줄거리 */
+	mi_story VARCHAR2(2000), /* 줄거리 */
 	mi_teaser VARCHAR2(500), /* 티저 */
-	grade_code VARCHAR2(20), /* 심의등급 */
+	grade_code VARCHAR2(50), /* 심의등급 */
 	mi_gcode VARCHAR2(50), /* 장르 */
-    mi_time VARCHAR2(20) /* 상영시간 */
+    	mi_time VARCHAR2(20) /* 상영시간 */
 );
 
 CREATE UNIQUE INDEX PK_movie_info
@@ -752,7 +752,7 @@ CREATE TABLE movie_rev (
 	mr_update_date DATE NOT NULL, /* 영화리뷰수정일 */
 	mr_score NUMBER NOT NULL, /* 영화리뷰별점 */
 	mr_content VARCHAR2(300) NOT NULL, /* 영화리뷰평가내용 */
-    mr_alert NUMBER /* 신고수 */
+    	mr_alert NUMBER /* 신고수 */
 );
 
 CREATE UNIQUE INDEX PK_movie_rev
@@ -782,7 +782,8 @@ CREATE TABLE cine_info (
 	cc_map_lon NUMBER NOT NULL, /* 경도 */
 	cc_transit VARCHAR2(200) NOT NULL, /* 교통편 */
 	cc_parking VARCHAR2(200) NOT NULL, /* 주차 */
-	cc_score NUMBER NOT NULL /* 영화관총점 */
+	cc_score NUMBER NOT NULL, /* 영화관총점 */
+	cc_localnum NUMBER NOT NULL/* 지역번호 */
 );
 
 CREATE UNIQUE INDEX PK_cine_info
@@ -996,6 +997,7 @@ ALTER TABLE cr_thumb
 CREATE TABLE cr_warning (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
 	cr_code NUMBER NOT NULL, /* 영화관리뷰코드 */
+	cr_date DATE NOT NULL, /* 신고날짜 */
 	cr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -1125,7 +1127,7 @@ CREATE TABLE bfr_warning (
 	bfr_rno NUMBER NOT NULL, /* 자유댓글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bfr_date DATE NOT NULL /* 신고날짜 */
-	bfr_ncontent VARCHAR2(100) NOT NULL /* 신고사유 */
+	bfr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* bs_reply */
@@ -1793,6 +1795,18 @@ create sequence seq_ad_qna_no
    nocycle;
    
 create sequence seq_ad_notice_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_movie_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_mr_code
    start with 1
    increment by 1
    nomaxvalue
