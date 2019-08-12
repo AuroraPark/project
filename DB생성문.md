@@ -1,10 +1,16 @@
-# 0. 사용자 생성 & db생성문
+
+# 0. 사용자 생성 & db생성문 (0807수정 )
+
+> 사용자 생성
 
 ```
 create user blockbuster identified by 1234  
 default tablespace users  
 temporary tablespace temp;grant connect, dba to blockbuster;
 ```
+
+> db 생성
+
 ```
 ALTER TABLE board_free
 	DROP
@@ -86,14 +92,14 @@ ALTER TABLE delete_member
 		CONSTRAINT FK_member_TO_delete_member
 		CASCADE;
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	DROP
-		CONSTRAINT FK_board_free_TO_free_warnning
+		CONSTRAINT FK_board_free_TO_free_warning
 		CASCADE;
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	DROP
-		CONSTRAINT FK_member_TO_free_warnning
+		CONSTRAINT FK_member_TO_free_warning
 		CASCADE;
 
 ALTER TABLE bs_warning
@@ -221,14 +227,14 @@ ALTER TABLE bs_reply
 		CONSTRAINT FK_member_TO_bs_reply
 		CASCADE;
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	DROP
-		CONSTRAINT FK_member_TO_sr_warnning
+		CONSTRAINT FK_member_TO_sr_warning
 		CASCADE;
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	DROP
-		CONSTRAINT FK_bs_reply_TO_sr_warnning
+		CONSTRAINT FK_bs_reply_TO_sr_warning
 		CASCADE;
 
 ALTER TABLE board_qna
@@ -517,8 +523,8 @@ DROP TABLE ad_member
 DROP TABLE delete_member 
 	CASCADE CONSTRAINTS;
 
-/* free_warnning */
-DROP TABLE free_warnning 
+/* free_warning */
+DROP TABLE free_warning 
 	CASCADE CONSTRAINTS;
 
 /* bs_warning */
@@ -529,7 +535,7 @@ DROP TABLE bs_warning
 DROP TABLE mr_thumb 
 	CASCADE CONSTRAINTS;
 
-/* mr_warnning */
+/* mr_warning */
 DROP TABLE mr_warning 
 	CASCADE CONSTRAINTS;
 
@@ -537,7 +543,7 @@ DROP TABLE mr_warning
 DROP TABLE cr_thumb 
 	CASCADE CONSTRAINTS;
 
-/* cr_warnning */
+/* cr_warning */
 DROP TABLE cr_warning 
 	CASCADE CONSTRAINTS;
 
@@ -573,8 +579,8 @@ DROP TABLE bfr_warning
 DROP TABLE bs_reply 
 	CASCADE CONSTRAINTS;
 
-/* sr_warnning */
-DROP TABLE sr_warnning 
+/* sr_warning */
+DROP TABLE sr_warning 
 	CASCADE CONSTRAINTS;
 
 /* board_qna */
@@ -601,7 +607,8 @@ DROP TABLE black_spam
 CREATE TABLE board_free (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 자유작성자 */
-	bf_thumb NUMBER, /* 자유추천/비추천 */
+	bf_recommend NUMBER, /* 자유추천수 */
+	bf_decommend NUMBER, /* 자유비추천수 */
 	bf_category VARCHAR2(50) NOT NULL, /* 자유카테고리 */
 	bf_title VARCHAR2(55) NOT NULL, /* 자유글제목 */
 	bf_reg_date DATE NOT NULL, /* 자유등록일 */
@@ -655,12 +662,12 @@ ALTER TABLE bf_reply
 CREATE TABLE member (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
 	m_nickname VARCHAR2(30) NOT NULL, /* 닉네임 */
-	m_image VARCHAR2(30), /* 프로필 사진 */
+	m_image VARCHAR2(100), /* 프로필 사진 */
 	m_email VARCHAR2(100) NOT NULL, /* 이메일 */
 	m_eagree VARCHAR2(2) NOT NULL, /* 이메일 수신동의 */
 	m_sagree VARCHAR2(2) NOT NULL, /* SMS수신동의 */
 	m_name VARCHAR2(20) NOT NULL, /* 이름 */
-	m_phone NUMBER NOT NULL, /* 전화번호 */
+	m_phone VARCHAR2(50) NOT NULL, /* 전화번호 */
 	m_cert VARCHAR2(2) NOT NULL, /* 이메일 인증여부 */
 	m_password VARCHAR2(40) NOT NULL, /* 패스워드 */
 	m_regdate DATE NOT NULL, /* 회원가입일 */
@@ -715,10 +722,11 @@ CREATE TABLE movie_info (
 	mi_releaseday DATE, /* 개봉일 */
 	mi_ccode VARCHAR2(40), /* 국가명 */
 	mi_actor VARCHAR2(200), /* 출연배우 */
-	mi_story VARCHAR2(500), /* 줄거리 */
+	mi_story VARCHAR2(2000), /* 줄거리 */
 	mi_teaser VARCHAR2(500), /* 티저 */
-	grade_code VARCHAR2(20), /* 심의등급 */
-	mi_gcode VARCHAR2(20) /* 장르 */
+	grade_code VARCHAR2(50), /* 심의등급 */
+	mi_gcode VARCHAR2(50), /* 장르 */
+    	mi_time VARCHAR2(20) /* 상영시간 */
 );
 
 CREATE UNIQUE INDEX PK_movie_info
@@ -743,7 +751,8 @@ CREATE TABLE movie_rev (
 	mr_dislike NUMBER, /* 비추천수 */
 	mr_update_date DATE NOT NULL, /* 영화리뷰수정일 */
 	mr_score NUMBER NOT NULL, /* 영화리뷰별점 */
-	mr_content VARCHAR2(300) NOT NULL /* 영화리뷰평가내용 */
+	mr_content VARCHAR2(300) NOT NULL, /* 영화리뷰평가내용 */
+    	mr_alert NUMBER /* 신고수 */
 );
 
 CREATE UNIQUE INDEX PK_movie_rev
@@ -773,7 +782,8 @@ CREATE TABLE cine_info (
 	cc_map_lon NUMBER NOT NULL, /* 경도 */
 	cc_transit VARCHAR2(200) NOT NULL, /* 교통편 */
 	cc_parking VARCHAR2(200) NOT NULL, /* 주차 */
-	cc_score NUMBER NOT NULL /* 영화관총점 */
+	cc_score NUMBER NOT NULL, /* 영화관총점 */
+	cc_localnum NUMBER NOT NULL/* 지역번호 */
 );
 
 CREATE UNIQUE INDEX PK_cine_info
@@ -896,7 +906,8 @@ ALTER TABLE board_share
 CREATE TABLE ad_member (
 	admin_num NUMBER NOT NULL, /* 관리자번호 */
 	admin_id VARCHAR2(20) NOT NULL, /* 관리자ID */
-	admin_password VARCHAR2(30) NOT NULL /* 관리자비밀번호 */
+	admin_password VARCHAR2(30) NOT NULL, /* 관리자비밀번호 */
+	admin_name VARCHAR2(20) NOT NULL /* 관리자 이름 */
 );
 
 CREATE UNIQUE INDEX PK_ad_member
@@ -930,18 +941,20 @@ ALTER TABLE delete_member
 			id
 		);
 
-/* free_warnning */
-CREATE TABLE free_warnning (
+/* free_warning */
+CREATE TABLE free_warning (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
-	bf_date DATE NOT NULL /* 신고날짜 */
+	bf_date DATE NOT NULL, /* 신고날짜 */
+	bf_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* bs_warning */
 CREATE TABLE bs_warning (
 	id NUMBER NOT NULL, /* 나눔신고자 */
 	bs_bno NUMBER NOT NULL, /* 나눔글번호 */
-	bs_date DATE NOT NULL /* 신고날짜 */
+	bs_date DATE NOT NULL, /* 신고날짜 */
+	bs_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* mr_thumb */
@@ -951,23 +964,14 @@ CREATE TABLE mr_thumb (
 	id NUMBER NOT NULL /* 영화리뷰ID(시퀀스) */
 );
 
-CREATE UNIQUE INDEX PK_mr_thumb
-	ON mr_thumb (
-		bf_thumb ASC
-	);
 
-ALTER TABLE mr_thumb
-	ADD
-		CONSTRAINT PK_mr_thumb
-		PRIMARY KEY (
-			bf_thumb
-		);
 
-/* mr_warnning */
+/* mr_warning */
 CREATE TABLE mr_warning (
 	id NUMBER NOT NULL, /* 영화리뷰신고자 */
 	mr_code NUMBER NOT NULL, /* 영화리뷰코드 */
-	mr_date DATE NOT NULL /* 신고날짜 */
+	mr_date DATE NOT NULL, /* 신고날짜 */
+	mr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* cr_thumb */
@@ -989,10 +993,12 @@ ALTER TABLE cr_thumb
 			cr_thumb
 		);
 
-/* cr_warnning */
+/* cr_warning */
 CREATE TABLE cr_warning (
 	id NUMBER NOT NULL, /* 멤버ID(시퀀스) */
-	cr_code NUMBER NOT NULL /* 영화관리뷰코드 */
+	cr_code NUMBER NOT NULL, /* 영화관리뷰코드 */
+	cr_date DATE NOT NULL, /* 신고날짜 */
+	cr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 CREATE UNIQUE INDEX PK_cr_warning
@@ -1010,7 +1016,7 @@ ALTER TABLE cr_warning
 /* mml_content */
 CREATE TABLE mml_content (
 	mml_num NUMBER NOT NULL, /* 나영리코드 */
-	mi_code NUMBER NOT NULL, /* 영화코드 */
+	mi_code VARCHAR2(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */
 	id NUMBER NOT NULL, /* 나영리ID(시퀀스) */
 	mml_view_count NUMBER, /* 나영리조회수 */
 	mml_write_date DATE NOT NULL, /* 나영리등록일 */
@@ -1063,14 +1069,16 @@ ALTER TABLE mml_reply
 CREATE TABLE mml_warning (
 	mml_num NUMBER NOT NULL, /* 나영리코드 */
 	id NUMBER NOT NULL, /* 나영리신고자ID(시퀀스) */
-	mml_date DATE NOT NULL /* 신고날짜 */
+	mml_date DATE NOT NULL, /* 신고날짜 */
+	mml_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* mmlr_warning */
 CREATE TABLE mmlr_warning (
 	mml_reply_code NUMBER NOT NULL, /* 나영리리뷰코드 */
 	id NUMBER NOT NULL, /* 나영리리뷰ID(시퀀스) */
-	mml_reply_date DATE NOT NULL /* 신고날짜 */
+	mml_reply_date DATE NOT NULL, /* 신고날짜 */
+	mml_reply_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* member_follow */
@@ -1119,6 +1127,7 @@ CREATE TABLE bfr_warning (
 	bfr_rno NUMBER NOT NULL, /* 자유댓글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
 	bfr_date DATE NOT NULL /* 신고날짜 */
+	bfr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* bs_reply */
@@ -1145,11 +1154,12 @@ ALTER TABLE bs_reply
 			bsr_rno
 		);
 
-/* sr_warnning */
-CREATE TABLE sr_warnning (
+/* bsr_warning */
+CREATE TABLE bsr_warning (
 	id NUMBER NOT NULL, /* 신고자 */
 	bsr_rno NUMBER, /* 나눔댓글번호 */
-	bs_date DATE NOT NULL /* 신고날짜 */
+	bsr_date DATE NOT NULL, /* 신고날짜 */
+	bsr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
 /* board_qna */
@@ -1390,9 +1400,9 @@ ALTER TABLE delete_member
 			id
 		);
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	ADD
-		CONSTRAINT FK_board_free_TO_free_warnning
+		CONSTRAINT FK_board_free_TO_free_warning
 		FOREIGN KEY (
 			bf_bno
 		)
@@ -1400,9 +1410,9 @@ ALTER TABLE free_warnning
 			bf_bno
 		);
 
-ALTER TABLE free_warnning
+ALTER TABLE free_warning
 	ADD
-		CONSTRAINT FK_member_TO_free_warnning
+		CONSTRAINT FK_member_TO_free_warning
 		FOREIGN KEY (
 			id
 		)
@@ -1518,16 +1528,6 @@ ALTER TABLE mml_content
 		)
 		REFERENCES member (
 			id
-		);
-
-ALTER TABLE mml_content
-	ADD
-		CONSTRAINT FK_movie_info_TO_mml_content
-		FOREIGN KEY (
-			mi_code
-		)
-		REFERENCES movie_info (
-			mi_code
 		);
 
 ALTER TABLE mml_reply
@@ -1660,9 +1660,9 @@ ALTER TABLE bs_reply
 			id
 		);
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	ADD
-		CONSTRAINT FK_member_TO_sr_warnning
+		CONSTRAINT FK_member_TO_sr_warning
 		FOREIGN KEY (
 			id
 		)
@@ -1670,9 +1670,9 @@ ALTER TABLE sr_warnning
 			id
 		);
 
-ALTER TABLE sr_warnning
+ALTER TABLE sr_warning
 	ADD
-		CONSTRAINT FK_bs_reply_TO_sr_warnning
+		CONSTRAINT FK_bs_reply_TO_sr_warning
 		FOREIGN KEY (
 			bsr_rno
 		)
@@ -1739,9 +1739,92 @@ ALTER TABLE blacklist
 		REFERENCES member (
 			id
 		);
+
+/* 시퀀스 생성문 */
+
+create sequence seq_mf_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_mml_reply_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_mml_num
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bs_bno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bf_bno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bs_rno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_bfr_rno
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+create sequence seq_member_id
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_ad_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_ad_notice_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_movie_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+create sequence seq_mr_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+   
+/* 트리거 생성 */
+
+create or replace trigger boardQna_to_adQna_delete
+before delete on BOARD_QNA for each row
+begin
+delete AD_QNA where qna_no = :old.qna_no;
+end;
+/
+
 ```
 
 
+0807 수정완료
 # 1. 시퀀스 생성문
 ```
 create sequence seq_mf_code
@@ -1789,8 +1872,10 @@ create sequence seq_member_id
    increment by 1
    nomaxvalue
    nocycle;
+   
 ```
 
+0807 수정완료
 # 2. (필요시) 시퀀스 삭제문
 
 ```
@@ -1804,12 +1889,14 @@ DROP SEQUENCE seq_bs_rno;
 DROP SEQUENCE seq_bfr_rno;
 ```
 
+
+0807 수정완료
 # 3. MML_CONTENT 테이블 수정사항입니다.
-1. member : m_image VARCHAR(100)<크기 늘림>  
+1. member : m_image VARCHAR(100)<크기 늘림>
 2. movie_info : mi_story VARCHAR2(1000)<크기늘림>  
 3. movie_rev : mi_code NUMBER NOT NULL, / **영화고유코드**/<주석변경>  
 4. mml_content : mi_code VARCHAR(100) NOT NULL, /* 영화코드(여러개 넣을 수 있음) */  
-5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용  
+5. 각각의 신고테이블에 신고사유 받을 수 있게 컬럼 추가하는것도 좋을거같아용(warn_content) 
 6. FK_movie_info_TO_mml_content 는 만들지 않는게 좋을거같아용(이거를 생성하면 mml_content의 mi_code에 영화코드 1개만 넣을 수 있음)
 mml_content수정사항에 4번 6번 있습니당!  
 나중에 db생성문에서 아예 적용해주는것도 좋을것 같습니댱
@@ -1819,6 +1906,7 @@ ALTER TABLE mml_content DROP CONSTRAINT fk_movie_info_to_mml_content;
 ALTER TABLE MML_CONTENT MODIFY (MI_CODE VARCHAR2(100) );
 ```
 
+0807 수정완료
 # 4. board_free 수정
 ```
 ALTER TABLE board_free DROP COLUMN bf_thumb;
@@ -1826,6 +1914,7 @@ ALTER TABLE board_free ADD(bf_recommend NUMBER);
 ALTER TABLE board_free ADD(bf_decommend NUMBER);
 ```
 
+0807 수정완료
 # 5. 트리거 추가(board_qna삭제시 admin_qna삭제)
 ```
 create or replace trigger boardQna_to_adQna_delete
@@ -1836,22 +1925,78 @@ end;
 /
 ```
 
+0807 수정완료
 # 6. movie_info 테이블의 mi_gcode 20에서 50으로 크기 늘렸습니다
 - movie_info : mi_gcode(20) -> (50)
 
+0807 수정완료
 # 7. movie_info 에 상영시간 칼럼이 없네MI_TIME 칼럼 추가
 
 - movie_info : MI_TIME (상영시간) 컬럼 추가
 
+0807 수정완료
 # 8. movie_rev 테이블에 신고수 칼럼이 없네요. mr_alert 추가
 
 - movie_rev : mr_alert 추가
 
+0807 수정완료
 # 9. mr_thumb의 bf_thumb pk 제거
 
- 
+```
+--필요시 추가
+CREATE UNIQUE INDEX PK_mr_thumb
+	ON mr_thumb (
+		bf_thumb ASC
+	);
+
+ALTER TABLE mr_thumb
+	ADD
+		CONSTRAINT PK_mr_thumb
+		PRIMARY KEY (
+			bf_thumb
+		);
+```
+
+0807 수정완료
+# 10. sr -> bsr로
+```
+/* bsr_warnning */
+CREATE TABLE bsr_warnning (
+	id NUMBER NOT NULL, /* 신고자 */
+	bsr_rno NUMBER, /* 나눔댓글번호 */
+	bsr_date DATE NOT NULL, /* 신고날짜 */
+	bsr_warncontent VARCHAR2(50) NOT NULL /* 신고사유 */
+); 
+```
+0807 수정완료
+# 11. 모든 warnning -> warning 으로 변경
+
+0807 수정완료
+# 12. ad_member 에  admin_name VARCHAR2(20) NOT NULL /* 관리자 이름 */ 추가
+
+0807 수정완료
+# 13. ad_qna 시퀀스 추가
+```
+create sequence seq_ad_qna_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+```
+
+0808 수정완료
+# 14. ad_notice 시퀀스 추가유~
+```
+create sequence seq_ad_notice_no
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;
+```
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMT
-YyMDY1MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4
-M119
+eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
+U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
+MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
