@@ -1,5 +1,5 @@
 
-# 0. 사용자 생성 & db생성문 (0807수정 )
+# 0. 사용자 생성 & db생성문 (0812수정 )
 
 > 사용자 생성
 
@@ -610,7 +610,7 @@ CREATE TABLE board_free (
 	bf_recommend NUMBER, /* 자유추천수 */
 	bf_decommend NUMBER, /* 자유비추천수 */
 	bf_category VARCHAR2(50) NOT NULL, /* 자유카테고리 */
-	bf_title VARCHAR2(55) NOT NULL, /* 자유글제목 */
+	bf_title VARCHAR2(100) NOT NULL, /* 자유글제목 */
 	bf_reg_date DATE NOT NULL, /* 자유등록일 */
 	bf_update_date DATE NOT NULL, /* 자유수정일 */
 	bf_source VARCHAR2(1000), /* 자유출처 */
@@ -677,7 +677,8 @@ CREATE TABLE member (
 	m_follower NUMBER NOT NULL, /* 팔로워수 */
 	m_level VARCHAR2(20) NOT NULL, /* 엠블럼등급 */
 	m_favorite VARCHAR2(20), /* 선호장르 */
-	m_blacklist VARCHAR2(3) NOT NULL /* 블랙리스트 */
+	m_blacklist VARCHAR2(3) NOT NULL, /* 블랙리스트 */
+	m_authkey VARCHAR2(200) NOT NULL  /* 인증키 */
 );
 
 CREATE UNIQUE INDEX PK_member
@@ -745,7 +746,7 @@ ALTER TABLE movie_info
 CREATE TABLE movie_rev (
 	mr_code NUMBER NOT NULL, /* 영화리뷰코드(시퀀스) */
 	id NUMBER NOT NULL, /* 영화리뷰작성자 */
-	mi_code NUMBER NOT NULL, /* 영화리뷰코드 */
+	mi_code NUMBER NOT NULL, /* 영화고유코드 */
 	mr_write_date DATE NOT NULL, /* 영화리뷰작성일 */
 	mr_like NUMBER, /* 추천수 */
 	mr_dislike NUMBER, /* 비추천수 */
@@ -1022,7 +1023,7 @@ CREATE TABLE mml_content (
 	mml_write_date DATE NOT NULL, /* 나영리등록일 */
 	mml_update_date DATE NOT NULL, /* 나영리수정일 */
 	mml_like NUMBER NOT NULL, /* 나영리좋아요 */
-	mml_title VARCHAR2(50) NOT NULL, /* 나영리제목 */
+	mml_title VARCHAR2(100) NOT NULL, /* 나영리제목 */
 	mml_content VARCHAR2(1000) NOT NULL, /* 나영리내용 */
 	mml_poster VARCHAR2(3000) NOT NULL, /* 나영리포스터 */
 	mml_warn_count NUMBER /* 나영리신고수 */
@@ -1777,7 +1778,7 @@ create sequence seq_bs_rno
    increment by 1
    nomaxvalue
    nocycle;
-create sequence seq_bfr_rno
+create sequence seq_bf_rno
    start with 1
    increment by 1
    nomaxvalue
@@ -1994,6 +1995,15 @@ create sequence seq_ad_notice_no
    nocycle;
 ```
 
+0812 수정완료
+# 14. 수정
+```
+1. board_free : bf_title 크기 변경
+2. member : m_authkey 추가
+3. movie_rev : 주석 수정
+4. mml_content : mml_title 크기 변경
+5. 시퀀스명 변경 : seq_bf_rno 
+```
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
