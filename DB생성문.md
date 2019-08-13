@@ -1,5 +1,5 @@
 
-# 0. 사용자 생성 & db생성문 (0812수정 )
+# 0. 사용자 생성 & db생성문 (0813수정 )
 
 > 사용자 생성
 
@@ -829,17 +829,6 @@ CREATE TABLE bf_thumb (
 	id NUMBER NOT NULL /* 자유추천참여자 */
 );
 
-CREATE UNIQUE INDEX PK_bf_thumb
-	ON bf_thumb (
-		bf_thumb ASC
-	);
-
-ALTER TABLE bf_thumb
-	ADD
-		CONSTRAINT PK_bf_thumb
-		PRIMARY KEY (
-			bf_thumb
-		);
 
 /* sns_code */
 CREATE TABLE sns_code (
@@ -865,17 +854,6 @@ CREATE TABLE br_thumb (
 	id NUMBER NOT NULL /* 자유댓글추천참여자 */
 );
 
-CREATE UNIQUE INDEX PK_br_thumb
-	ON br_thumb (
-		bf_thumb ASC
-	);
-
-ALTER TABLE br_thumb
-	ADD
-		CONSTRAINT PK_br_thumb
-		PRIMARY KEY (
-			bf_thumb
-		);
 
 /* board_share */
 CREATE TABLE board_share (
@@ -982,17 +960,7 @@ CREATE TABLE cr_thumb (
 	cr_code NUMBER NOT NULL /* 영화관리뷰코드 */
 );
 
-CREATE UNIQUE INDEX PK_cr_thumb
-	ON cr_thumb (
-		cr_thumb ASC
-	);
 
-ALTER TABLE cr_thumb
-	ADD
-		CONSTRAINT PK_cr_thumb
-		PRIMARY KEY (
-			cr_thumb
-		);
 
 /* cr_warning */
 CREATE TABLE cr_warning (
@@ -1127,7 +1095,7 @@ ALTER TABLE ad_notice
 CREATE TABLE bfr_warning (
 	bfr_rno NUMBER NOT NULL, /* 자유댓글번호 */
 	id NUMBER NOT NULL, /* 신고자 */
-	bfr_date DATE NOT NULL /* 신고날짜 */
+	bfr_date DATE NOT NULL, /* 신고날짜 */
 	bfr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
 
@@ -1216,17 +1184,6 @@ CREATE TABLE mmlr_thumb (
 	mml_reply_code NUMBER NOT NULL /* 나영리리뷰코드 */
 );
 
-CREATE UNIQUE INDEX PK_mmlr_thumb
-	ON mmlr_thumb (
-		bf_thumb ASC
-	);
-
-ALTER TABLE mmlr_thumb
-	ADD
-		CONSTRAINT PK_mmlr_thumb
-		PRIMARY KEY (
-			bf_thumb
-		);
 
 /* blacklist */
 CREATE TABLE blacklist (
@@ -1251,15 +1208,7 @@ ALTER TABLE board_free
 			id
 		);
 
-ALTER TABLE board_free
-	ADD
-		CONSTRAINT FK_bf_thumb_TO_board_free
-		FOREIGN KEY (
-			bf_thumb
-		)
-		REFERENCES bf_thumb (
-			bf_thumb
-		);
+
 
 ALTER TABLE bf_reply
 	ADD
@@ -1996,7 +1945,7 @@ create sequence seq_ad_notice_no
 ```
 
 0812 수정완료
-# 14. 수정
+# 15. 수정
 ```
 1. board_free : bf_title 크기 변경
 2. member : m_authkey 추가
@@ -2005,6 +1954,12 @@ create sequence seq_ad_notice_no
 5. 시퀀스명 변경 : seq_bf_rno 
 ```
 
+0813 수정완료
+# 16. 수정
+```
+1. bfr_warning ',' 추가
+2. thumb관련 테이블 주키 삭제 및 index삭제
+```
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
 U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
