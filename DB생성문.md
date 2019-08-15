@@ -1964,7 +1964,8 @@ create sequence seq_ad_notice_no
 0815 수정완료
 ```
 1. sr_warning -> bsr_warning으로 수정
-2. boardfee 테이블 content 100500-> 150으로 수정, category ()->(50)으로 
+2. boardfee 테이블 content 100500-> 150으로 수정, category ()->(50)으로
+3. sns_info쪽 오류나는것 확인 필요
 ```
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTEyOTMwNzYwNzcsMTc3NDEwMDIyMSwxOT
