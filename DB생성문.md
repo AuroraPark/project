@@ -609,8 +609,8 @@ CREATE TABLE board_free (
 	id NUMBER NOT NULL, /* 자유작성자 */
 	bf_recommend NUMBER, /* 자유추천수 */
 	bf_decommend NUMBER, /* 자유비추천수 */
-	bf_category VARCHAR2(50) NOT NULL, /* 자유카테고리 */
-	bf_title VARCHAR2(100) NOT NULL, /* 자유글제목 */
+	bf_category VARCHAR2() NOT NULL, /* 자유카테고리 */
+	bf_title VARCHAR2(10055) NOT NULL, /* 자유글제목 */
 	bf_reg_date DATE NOT NULL, /* 자유등록일 */
 	bf_update_date DATE NOT NULL, /* 자유수정일 */
 	bf_source VARCHAR2(1000), /* 자유출처 */
@@ -697,7 +697,7 @@ ALTER TABLE member
 CREATE TABLE sns_info (
 	sns_id NUMBER NOT NULL, /* SNS 고유아이디 */
 	id NUMBER NOT NULL, /* SNS멤버ID(시퀀스) */
-	sns_code NUMBER NOT NULL, /* SNS코드 */
+	sns_code R NOT NULL, /* SNS코드 */
 	sns_connect DATE NOT NULL /* sns연결일시 */
 );
 
@@ -1961,7 +1961,8 @@ create sequence seq_ad_notice_no
 2. thumb관련 테이블 주키 삭제 및 index삭제
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NDEwMDIyMSwxOTI5NzQzMzYyLC02OD
-U3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1
-MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLTM4ODMwNzc4M119
+eyJoaXN0b3J5IjpbLTEyOTMwNzYwNzcsMTc3NDEwMDIyMSwxOT
+I5NzQzMzYyLC02ODU3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5
+MDcsLTEwMTYyMDY1MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLT
+M4ODMwNzc4M119
 -->
