@@ -609,8 +609,8 @@ CREATE TABLE board_free (
 	id NUMBER NOT NULL, /* 자유작성자 */
 	bf_recommend NUMBER, /* 자유추천수 */
 	bf_decommend NUMBER, /* 자유비추천수 */
-	bf_category VARCHAR2() NOT NULL, /* 자유카테고리 */
-	bf_title VARCHAR2(100) NOT NULL, /* 자유글제목 */
+	bf_category VARCHAR2(50) NOT NULL, /* 자유카테고리 */
+	bf_title VARCHAR2(150) NOT NULL, /* 자유글제목 */
 	bf_reg_date DATE NOT NULL, /* 자유등록일 */
 	bf_update_date DATE NOT NULL, /* 자유수정일 */
 	bf_source VARCHAR2(1000), /* 자유출처 */
