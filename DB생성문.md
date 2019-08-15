@@ -227,14 +227,14 @@ ALTER TABLE bs_reply
 		CONSTRAINT FK_member_TO_bs_reply
 		CASCADE;
 
-ALTER TABLE sr_warning
+ALTER TABLE bsr_warning
 	DROP
-		CONSTRAINT FK_member_TO_sr_warning
+		CONSTRAINT FK_member_TO_bsr_warning
 		CASCADE;
 
-ALTER TABLE sr_warning
+ALTER TABLE bsr_warning
 	DROP
-		CONSTRAINT FK_bs_reply_TO_sr_warning
+		CONSTRAINT FK_bs_reply_TO_bsr_warning
 		CASCADE;
 
 ALTER TABLE board_qna
@@ -579,8 +579,8 @@ DROP TABLE bfr_warning
 DROP TABLE bs_reply 
 	CASCADE CONSTRAINTS;
 
-/* sr_warning */
-DROP TABLE sr_warning 
+/* bsr_warning */
+DROP TABLE bsr_warning 
 	CASCADE CONSTRAINTS;
 
 /* board_qna */
@@ -1610,9 +1610,9 @@ ALTER TABLE bs_reply
 			id
 		);
 
-ALTER TABLE sr_warning
+ALTER TABLE bsr_warning
 	ADD
-		CONSTRAINT FK_member_TO_sr_warning
+		CONSTRAINT FK_member_TO_bsr_warning
 		FOREIGN KEY (
 			id
 		)
@@ -1620,9 +1620,9 @@ ALTER TABLE sr_warning
 			id
 		);
 
-ALTER TABLE sr_warning
+ALTER TABLE bsr_warning
 	ADD
-		CONSTRAINT FK_bs_reply_TO_sr_warning
+		CONSTRAINT FK_bs_reply_TO_bsr_warning
 		FOREIGN KEY (
 			bsr_rno
 		)
@@ -1959,6 +1959,12 @@ create sequence seq_ad_notice_no
 ```
 1. bfr_warning ',' 추가
 2. thumb관련 테이블 주키 삭제 및 index삭제
+```
+
+0815 수정완료
+```
+1. sr_warning -> bsr_warning으로 수정
+2. boardfee 테이블 content 100500-> 150으로 수정, category ()->(50)으로 
 ```
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTEyOTMwNzYwNzcsMTc3NDEwMDIyMSwxOT
