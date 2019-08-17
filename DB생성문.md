@@ -1,5 +1,5 @@
 
-# 0. 사용자 생성 & db생성문 (0815수정 )
+# 0. 사용자 생성 & db생성문 (0816수정 )
 
 > 사용자 생성
 
@@ -693,26 +693,6 @@ ALTER TABLE member
 			id
 		);
 
-/* sns_info */
-CREATE TABLE sns_info (
-	sns_id NUMBER NOT NULL, /* SNS 고유아이디 */
-	id NUMBER NOT NULL, /* SNS멤버ID(시퀀스) */
-	sns_code R NOT NULL, /* SNS코드 */
-	sns_connect DATE NOT NULL /* sns연결일시 */
-);
-
-CREATE UNIQUE INDEX PK_sns_info
-	ON sns_info (
-		sns_id ASC
-	);
-
-ALTER TABLE sns_info
-	ADD
-		CONSTRAINT PK_sns_info
-		PRIMARY KEY (
-			sns_id
-		);
-
 /* movie_info */
 CREATE TABLE movie_info (
 	mi_code NUMBER NOT NULL, /* 영화코드 */
@@ -828,24 +808,6 @@ CREATE TABLE bf_thumb (
 	bf_bno NUMBER NOT NULL, /* 자유글번호 */
 	id NUMBER NOT NULL /* 자유추천참여자 */
 );
-
-
-/* sns_code */
-CREATE TABLE sns_code (
-	sns_code NUMBER NOT NULL /* SNS코드 */
-);
-
-CREATE UNIQUE INDEX PK_sns_code
-	ON sns_code (
-		sns_code ASC
-	);
-
-ALTER TABLE sns_code
-	ADD
-		CONSTRAINT PK_sns_code
-		PRIMARY KEY (
-			sns_code
-		);
 
 /* br_thumb */
 CREATE TABLE br_thumb (
@@ -1206,7 +1168,7 @@ ALTER TABLE board_free
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 
 
@@ -1218,7 +1180,7 @@ ALTER TABLE bf_reply
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bf_reply
 	ADD
@@ -1228,27 +1190,7 @@ ALTER TABLE bf_reply
 		)
 		REFERENCES board_free (
 			bf_bno
-		);
-
-ALTER TABLE sns_info
-	ADD
-		CONSTRAINT FK_sns_code_TO_sns_info
-		FOREIGN KEY (
-			sns_code
-		)
-		REFERENCES sns_code (
-			sns_code
-		);
-
-ALTER TABLE sns_info
-	ADD
-		CONSTRAINT FK_member_TO_sns_info
-		FOREIGN KEY (
-			id
-		)
-		REFERENCES member (
-			id
-		);
+		) on delete cascade;
 
 ALTER TABLE movie_rev
 	ADD
@@ -1258,7 +1200,7 @@ ALTER TABLE movie_rev
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE movie_rev
 	ADD
@@ -1268,7 +1210,7 @@ ALTER TABLE movie_rev
 		)
 		REFERENCES movie_info (
 			mi_code
-		);
+		) on delete cascade;
 
 ALTER TABLE cine_rev
 	ADD
@@ -1278,7 +1220,7 @@ ALTER TABLE cine_rev
 		)
 		REFERENCES cine_info (
 			cc_code
-		);
+		) on delete cascade;
 
 ALTER TABLE cine_rev
 	ADD
@@ -1288,7 +1230,7 @@ ALTER TABLE cine_rev
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bf_thumb
 	ADD
@@ -1298,7 +1240,7 @@ ALTER TABLE bf_thumb
 		)
 		REFERENCES board_free (
 			bf_bno
-		);
+		) on delete cascade;
 
 ALTER TABLE bf_thumb
 	ADD
@@ -1308,7 +1250,7 @@ ALTER TABLE bf_thumb
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE br_thumb
 	ADD
@@ -1318,7 +1260,7 @@ ALTER TABLE br_thumb
 		)
 		REFERENCES bf_reply (
 			bfr_rno
-		);
+		) on delete cascade;
 
 ALTER TABLE br_thumb
 	ADD
@@ -1328,7 +1270,7 @@ ALTER TABLE br_thumb
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE board_share
 	ADD
@@ -1348,7 +1290,7 @@ ALTER TABLE delete_member
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE free_warning
 	ADD
@@ -1358,7 +1300,7 @@ ALTER TABLE free_warning
 		)
 		REFERENCES board_free (
 			bf_bno
-		);
+		) on delete cascade;
 
 ALTER TABLE free_warning
 	ADD
@@ -1368,7 +1310,7 @@ ALTER TABLE free_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bs_warning
 	ADD
@@ -1378,7 +1320,7 @@ ALTER TABLE bs_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bs_warning
 	ADD
@@ -1388,7 +1330,7 @@ ALTER TABLE bs_warning
 		)
 		REFERENCES board_share (
 			bs_bno
-		);
+		) on delete cascade;
 
 ALTER TABLE mr_thumb
 	ADD
@@ -1398,7 +1340,7 @@ ALTER TABLE mr_thumb
 		)
 		REFERENCES movie_rev (
 			mr_code
-		);
+		) on delete cascade;
 
 ALTER TABLE mr_thumb
 	ADD
@@ -1408,7 +1350,7 @@ ALTER TABLE mr_thumb
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mr_warning
 	ADD
@@ -1418,7 +1360,7 @@ ALTER TABLE mr_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mr_warning
 	ADD
@@ -1428,7 +1370,7 @@ ALTER TABLE mr_warning
 		)
 		REFERENCES movie_rev (
 			mr_code
-		);
+		) on delete cascade;
 
 ALTER TABLE cr_thumb
 	ADD
@@ -1438,7 +1380,7 @@ ALTER TABLE cr_thumb
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE cr_thumb
 	ADD
@@ -1448,7 +1390,7 @@ ALTER TABLE cr_thumb
 		)
 		REFERENCES cine_rev (
 			cr_code
-		);
+		) on delete cascade;
 
 ALTER TABLE cr_warning
 	ADD
@@ -1458,7 +1400,7 @@ ALTER TABLE cr_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE cr_warning
 	ADD
@@ -1468,7 +1410,7 @@ ALTER TABLE cr_warning
 		)
 		REFERENCES cine_rev (
 			cr_code
-		);
+		) on delete cascade;
 
 ALTER TABLE mml_content
 	ADD
@@ -1478,7 +1420,7 @@ ALTER TABLE mml_content
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mml_reply
 	ADD
@@ -1488,7 +1430,7 @@ ALTER TABLE mml_reply
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mml_reply
 	ADD
@@ -1498,7 +1440,7 @@ ALTER TABLE mml_reply
 		)
 		REFERENCES mml_content (
 			mml_num
-		);
+		) on delete cascade;
 
 ALTER TABLE mml_warning
 	ADD
@@ -1508,7 +1450,7 @@ ALTER TABLE mml_warning
 		)
 		REFERENCES mml_content (
 			mml_num
-		);
+		) on delete cascade;
 
 ALTER TABLE mml_warning
 	ADD
@@ -1518,7 +1460,7 @@ ALTER TABLE mml_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mmlr_warning
 	ADD
@@ -1528,7 +1470,7 @@ ALTER TABLE mmlr_warning
 		)
 		REFERENCES mml_reply (
 			mml_reply_code
-		);
+		) on delete cascade;
 
 ALTER TABLE mmlr_warning
 	ADD
@@ -1538,7 +1480,7 @@ ALTER TABLE mmlr_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE member_follow
 	ADD
@@ -1568,7 +1510,7 @@ ALTER TABLE ad_notice
 		)
 		REFERENCES ad_member (
 			admin_num
-		);
+		) on delete cascade;
 
 ALTER TABLE bfr_warning
 	ADD
@@ -1578,7 +1520,7 @@ ALTER TABLE bfr_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bfr_warning
 	ADD
@@ -1588,7 +1530,7 @@ ALTER TABLE bfr_warning
 		)
 		REFERENCES bf_reply (
 			bfr_rno
-		);
+		) on delete cascade;
 
 ALTER TABLE bs_reply
 	ADD
@@ -1598,7 +1540,7 @@ ALTER TABLE bs_reply
 		)
 		REFERENCES board_share (
 			bs_bno
-		);
+		) on delete cascade;
 
 ALTER TABLE bs_reply
 	ADD
@@ -1608,7 +1550,7 @@ ALTER TABLE bs_reply
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bsr_warning
 	ADD
@@ -1618,7 +1560,7 @@ ALTER TABLE bsr_warning
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE bsr_warning
 	ADD
@@ -1628,7 +1570,7 @@ ALTER TABLE bsr_warning
 		)
 		REFERENCES bs_reply (
 			bsr_rno
-		);
+		) on delete cascade;
 
 ALTER TABLE board_qna
 	ADD
@@ -1638,7 +1580,7 @@ ALTER TABLE board_qna
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE ad_qna
 	ADD
@@ -1648,7 +1590,7 @@ ALTER TABLE ad_qna
 		)
 		REFERENCES board_qna (
 			qna_no
-		);
+		) on delete cascade;
 
 ALTER TABLE ad_qna
 	ADD
@@ -1658,7 +1600,7 @@ ALTER TABLE ad_qna
 		)
 		REFERENCES ad_member (
 			admin_num
-		);
+		) on delete cascade;
 
 ALTER TABLE mmlr_thumb
 	ADD
@@ -1668,7 +1610,7 @@ ALTER TABLE mmlr_thumb
 		)
 		REFERENCES member (
 			id
-		);
+		) on delete cascade;
 
 ALTER TABLE mmlr_thumb
 	ADD
@@ -1678,7 +1620,7 @@ ALTER TABLE mmlr_thumb
 		)
 		REFERENCES mml_reply (
 			mml_reply_code
-		);
+		) on delete cascade;
 
 ALTER TABLE blacklist
 	ADD
