@@ -759,11 +759,8 @@ CREATE TABLE cine_info (
 	cc_phone VARCHAR2(200) NOT NULL, /* 영화관 전화번호 */
 	cc_theaters NUMBER NOT NULL, /* 상영관 수 */
 	cc_seats NUMBER NOT NULL, /* 총 좌석수 */
-	cc_map_lat NUMBER NOT NULL, /* 위도 */
-	cc_map_lon NUMBER NOT NULL, /* 경도 */
 	cc_transit VARCHAR2(200) NOT NULL, /* 교통편 */
 	cc_parking VARCHAR2(200) NOT NULL, /* 주차 */
-	cc_score NUMBER NOT NULL, /* 영화관총점 */
 	cc_localnum NUMBER NOT NULL/* 지역번호 */
 );
 
@@ -1088,7 +1085,7 @@ ALTER TABLE bs_reply
 /* bsr_warning */
 CREATE TABLE bsr_warning (
 	id NUMBER NOT NULL, /* 신고자 */
-	bsr_rno NUMBER, /* 나눔댓글번호 */
+	bsr_rno NUMBER NOT NULL, /* 나눔댓글번호 */
 	bsr_date DATE NOT NULL, /* 신고날짜 */
 	bsr_warncontent VARCHAR2(100) NOT NULL /* 신고사유 */
 );
