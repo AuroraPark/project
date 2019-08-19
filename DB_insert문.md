@@ -84,6 +84,24 @@ select bs_title from board_share where id=3
 union all
 select mml_title from mml_content where id=3;
 
+/* 답변 작성 */
+insert into ad_qna values(seq_ad_qna_no.nextval, 42 , '답변입니다', sysdate, sysdate, '1');
+insert into ad_qna values(seq_ad_qna_no.nextval, #{qna_no}, #{aqna_content}, sysdate, sysdate, #{admin_num});
+
+
+/* 답변 작성 후 qna_answer y로변경 */
+update board_qna set qna_answer='Y' where qna_no= 42;
+update board_qna set qna_answer='Y' where qna_no= #{qna_no}
+
+
+
+/* 답변 수정 */
+update ad_qna set aqna_content='답변 수정2', aqna_update_date= sysdate where aqna_no=21;
+update ad_qna set aqna_content=#{aqna_content}, aqna_update_date= sysdate where aqna_no=#{aqna_content};
+
+
+
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTYxMjY5NjAzMCw0ODk0NDM5MTIsLTE4ND
 kwOTE2NzJdfQ==
