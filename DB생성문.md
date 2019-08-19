@@ -754,7 +754,7 @@ CREATE TABLE cine_info (
 	cc_local_name VARCHAR2(20) NOT NULL, /* 지역이름 */
 	cc_brand VARCHAR2(50) NOT NULL, /* 브랜드이름 */
 	cc_name  VARCHAR2(50) NOT NULL, /* 영화관 이름 */
-	cc_adress VARCHAR2(200) NOT NULL, /* 영화관 주소 */
+	cc_address VARCHAR2(200) NOT NULL, /* 영화관 주소 */
 	cc_link VARCHAR2(200) NOT NULL, /* 영화관 링크 */
 	cc_phone VARCHAR2(200) NOT NULL, /* 영화관 전화번호 */
 	cc_theaters NUMBER NOT NULL, /* 상영관 수 */
