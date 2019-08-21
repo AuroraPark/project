@@ -751,7 +751,7 @@ ALTER TABLE movie_rev
 /* cine_cinfo */
 CREATE TABLE cine_info (
 	cc_code NUMBER NOT NULL, /* 영화관코드 */
-	cc_local_name VARCHAR2(20) NOT NULL, /* 지역이름 */
+	cc_local_name VARCHAR2(50) NOT NULL, /* 지역이름 */
 	cc_brand VARCHAR2(50) NOT NULL, /* 브랜드이름 */
 	cc_name  VARCHAR2(50) NOT NULL, /* 영화관 이름 */
 	cc_address VARCHAR2(200) NOT NULL, /* 영화관 주소 */
@@ -1922,6 +1922,8 @@ create sequence seq_ad_notice_no
    nocycle; 추가
 2. cine_info , map 두개 추가, address로 변경
 3. cine_rev,
+4. cine_info (
+	cc_local_name VARCHAR2(50) NOT NULL, /* 지역이름 */ 20에서 50d으로 변경
 ```
 ```
 1. sr_warning -> bsr_warning으로 수정
