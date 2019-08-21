@@ -762,6 +762,8 @@ CREATE TABLE cine_info (
 	cc_transit VARCHAR2(200) NOT NULL, /* 교통편 */
 	cc_parking VARCHAR2(200) NOT NULL, /* 주차 */
 	cc_localnum NUMBER NOT NULL/* 지역번호 */
+	cc_map_lat NUMBER,
+	cc_map_lon NUMBER
 );
 
 CREATE UNIQUE INDEX PK_cine_info
@@ -785,9 +787,9 @@ CREATE TABLE cine_rev (
 	cr_write_date DATE NOT NULL, /* 영화관리뷰작성일자 */
 	cr_update_date DATE NOT NULL, /* 영화관리뷰수정일자 */
 	cr_score NUMBER NOT NULL, /* 영화관점수 */
-	cr_like,
-	cr_dislike,
-	cr_alert
+	cr_like NUMBER,
+	cr_dislike NUMBER,
+	cr_alert NUMBER
 );
 
 CREATE UNIQUE INDEX PK_cine_rev
