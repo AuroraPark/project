@@ -784,7 +784,10 @@ CREATE TABLE cine_rev (
 	cr_content VARCHAR2(50) NOT NULL, /* 영화관평가내용 */
 	cr_write_date DATE NOT NULL, /* 영화관리뷰작성일자 */
 	cr_update_date DATE NOT NULL, /* 영화관리뷰수정일자 */
-	cr_score NUMBER NOT NULL /* 영화관점수 */
+	cr_score NUMBER NOT NULL, /* 영화관점수 */
+	cr_like,
+	cr_dislike,
+	cr_alert
 );
 
 CREATE UNIQUE INDEX PK_cine_rev
