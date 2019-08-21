@@ -1700,6 +1700,11 @@ create sequence seq_mr_code
    increment by 1
    nomaxvalue
    nocycle;
+ create sequence seq_cr_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle;  
    
 /* 트리거 생성 */
 
@@ -1901,6 +1906,18 @@ create sequence seq_ad_notice_no
 ```
 
 0815 수정완료
+
+0821 수정완료
+# 17. 수정
+```
+1. create sequence seq_cr_code
+   start with 1
+   increment by 1
+   nomaxvalue
+   nocycle; 추가
+2. cine_info , map 두개 추가, address로 변경
+3. cine_rev,
+```
 ```
 1. sr_warning -> bsr_warning으로 수정
 2. boardfee 테이블 content 100500-> 150으로 수정, category ()->(50)으로
