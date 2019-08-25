@@ -1,5 +1,5 @@
 
-# 0. 사용자 생성 & db생성문 (0816수정 )
+# 0. 사용자 생성 & db생성문 (081수정 )
 
 > 사용자 생성
 
@@ -760,10 +760,10 @@ CREATE TABLE cine_info (
 	cc_theaters NUMBER NOT NULL, /* 상영관 수 */
 	cc_seats NUMBER NOT NULL, /* 총 좌석수 */
 	cc_transit VARCHAR2(200) NOT NULL, /* 교통편 */
-	cc_parking VARCHAR2(200) NOT NULL, /* 주차 */
-	cc_localnum NUMBER NOT NULL/* 지역번호 */
+	cc_parking VARCHAR2(200) NOT NULL/*  */
+	alnumscore NUMBER NOT NULL, /* 지역번호영화관총점 */
 	cc_map_lat NUMBER,
-	cc_map_lon NUMBER
+	cc_map_lon NUMBERlocaln
 );
 
 CREATE UNIQUE INDEX PK_cine_info
@@ -786,7 +786,7 @@ CREATE TABLE cine_rev (
 	cr_content VARCHAR2(50) NOT NULL, /* 영화관평가내용 */
 	cr_write_date DATE NOT NULL, /* 영화관리뷰작성일자 */
 	cr_update_date DATE NOT NULL, /* 영화관리뷰수정일자 */
-	cr_score NUMBER NOT NULL, /* 영화관점수 */
+	cr_ NUMBER NOT NULL, /* 영화관점수 */
 	cr_like NUMBER,
 	cr_dislike NUMBER,
 	cr_alert NUMBER
@@ -1193,6 +1193,26 @@ ALTER TABLE bf_reply
 		REFERENCES board_free (
 			bf_bno
 		) on delete cascade;
+
+ALTER TABLE sns_info
+	ADD
+		CONSTRAINT FK_sns_code_TO_sns_info
+		FOREIGN KEY (
+			sns_code
+		)
+		REFERENCES sns_code (
+			sns_code
+		);
+
+ALTER TABLE sns_info
+	ADD
+		CONSTRAINT FK_member_TO_sns_info
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES member (
+			id
+		);
 
 ALTER TABLE movie_rev
 	ADD
@@ -1931,8 +1951,8 @@ create sequence seq_ad_notice_no
 3. sns_info쪽 오류나는것 확인 필요
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTMwNzYwNzcsMTc3NDEwMDIyMSwxOT
-I5NzQzMzYyLC02ODU3ODg3NTIsODA1Njc4NjcyLC00OTUxOTk5
-MDcsLTEwMTYyMDY1MTMsNjcyMjcxODA5LDEwNjk5ODQwNTgsLT
-M4ODMwNzc4M119
+eyJoaXN0b3J5IjpbLTIwNzM2MjE3MjAsLTEyOTMwNzYwNzcsMT
+c3NDEwMDIyMSwxOTI5NzQzMzYyLC02ODU3ODg3NTIsODA1Njc4
+NjcyLC00OTUxOTk5MDcsLTEwMTYyMDY1MTMsNjcyMjcxODA5LD
+EwNjk5ODQwNTgsLTM4ODMwNzc4M119
 -->
